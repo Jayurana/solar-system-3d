@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tabler Icons Webfont -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 </head>
 <body class="observatory-mode">
     <!-- Scanline Effect for Sci-Fi Monitor look -->
@@ -532,30 +534,106 @@
     </div>
 
     <!-- Cosmic Footer -->
-    <footer class="main-footer">
+    <footer id="footer" class="main-footer">
         <div class="footer-container">
-            <div class="footer-brand font-mono">
-                <a href="#hero" class="brand">
-                    <i class="fa-solid fa-space-shuttle brand-icon"></i>
-                    <span class="brand-text">ORION <span class="accent-text">COSMOS</span></span>
-                </a>
-                <p class="footer-desc">An interactive deep-space virtual control bridge mapping the telemetry paths of our solar system orbits.</p>
+            <!-- Column 1: Brand Block -->
+            <div class="footer-col brand-col">
+                <a href="#hero" class="footer-logo font-orbitron">ORION COSMOS</a>
+                <div class="footer-version font-mono">SYS.VER: 4.8.0.COSMOS</div>
+                <p class="footer-description">
+                    An interactive deep-space virtual control bridge mapping the telemetry paths of our solar system orbits.
+                </p>
+                <div class="brand-links">
+                    <a href="#footer" class="footer-about-link">About Orion Cosmos</a>
+                    <a href="#deck" class="cockpit-cta-btn">
+                        <strong>Enter Cockpit</strong>
+                        <span class="cta-arrow-circle">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
-            <div class="footer-links-group font-mono">
-                <span class="footer-links-title font-orbitron">GRID MAP</span>
-                <a href="#hero" class="footer-link">Telemetry</a>
-                <a href="#deck" class="footer-link">Control Deck</a>
-                <a href="#encyclopedia" class="footer-link">Planets Database</a>
-                <a href="#quiz-sec" class="footer-link">Exam Terminal</a>
+
+            <!-- Column 2: Navigation link group 1 -->
+            <div class="footer-col nav-col">
+                <span class="col-label font-mono">NAVIGATION</span>
+                <ul class="footer-links-list">
+                    <li><a href="#hero" class="footer-nav-link">Telemetry</a></li>
+                    <li><a href="#deck" class="footer-nav-link">Control Deck</a></li>
+                    <li><a href="#encyclopedia" class="footer-nav-link">Planets Database</a></li>
+                    <li><a href="#timeline-sec" class="footer-nav-link">Space Flight</a></li>
+                    <li><a href="#quiz-sec" class="footer-nav-link">Cosmic Trivia</a></li>
+                </ul>
             </div>
-            <div class="footer-links-group font-mono">
-                <span class="footer-links-title font-orbitron">EXTERNAL CHANNELS</span>
-                <a href="https://science.nasa.gov/solar-system/" target="_blank" class="footer-link">NASA Science Portal <i class="fa-solid fa-angles-right footer-ext-icon"></i></a>
-                <a href="https://www.solarsystemscope.com/" target="_blank" class="footer-link">Solar System Scope <i class="fa-solid fa-angles-right footer-ext-icon"></i></a>
+
+            <!-- Column 3: Navigation link group 2 -->
+            <div class="footer-col nav-col">
+                <span class="col-label font-mono desktop-only-label">&nbsp;</span>
+                <ul class="footer-links-list">
+                    <li><a href="#deck" class="footer-nav-link">Solar System</a></li>
+                    <li><a href="#deck" class="footer-nav-link">Sky Map</a></li>
+                    <li><a href="#deck" class="footer-nav-link">Constellation View</a></li>
+                    <li><a href="#deck" class="footer-nav-link">Synth Audio Mixer</a></li>
+                    <li><a href="#deck" class="footer-nav-link">Warp Simulation</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Navigation link group 3 -->
+            <div class="footer-col nav-col">
+                <span class="col-label font-mono desktop-only-label">&nbsp;</span>
+                <ul class="footer-links-list">
+                    <li><a href="https://science.nasa.gov/solar-system/" target="_blank" rel="noopener" class="footer-nav-link">NASA Science Portal ↗</a></li>
+                    <li><a href="https://www.solarsystemscope.com/" target="_blank" rel="noopener" class="footer-nav-link">Solar System Scope ↗</a></li>
+                    <li><a href="#canvas-container" class="footer-nav-link">Three.js Renderer</a></li>
+                    <li><a href="#hero" class="footer-nav-link">WebGL Active</a></li>
+                    <li><a href="#footer" class="footer-nav-link">About This Project</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Follow / Social Block -->
+            <div class="footer-col social-col">
+                <span class="col-label font-mono">FOLLOW THE MISSION</span>
+                <div class="social-icons-row">
+                    <a href="https://www.linkedin.com/in/jagdish-girase-986034410" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
+                        <i class="ti ti-brand-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Jayurana" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
+                        <i class="ti ti-brand-github"></i>
+                    </a>
+                    <a href="mailto:girasejagdish2@gmail.com" class="social-icon-btn" aria-label="Email">
+                        <i class="ti ti-mail"></i>
+                    </a>
+                </div>
+                <div class="social-extra-links">
+                    <a href="#footer" class="social-text-link">More Social Links</a>
+                    <a href="#footer" class="social-text-link">Project Newsletter</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Orion Cosmos Terminal. Licensed telemetry link feeds. Powered by Three.js.</p>
+
+        <!-- Divider -->
+        <hr class="footer-divider">
+
+        <!-- Bottom Legal Bar -->
+        <div class="footer-bottom-bar">
+            <div class="legal-left">
+                <a href="#footer" class="legal-link">Sitemap</a>
+                <span class="legal-dot">·</span>
+                <a href="#footer" class="legal-link">Privacy Policy</a>
+                <span class="legal-dot">·</span>
+                <a href="#footer" class="legal-link">Accessibility</a>
+                <span class="legal-dot">·</span>
+                <a href="#footer" class="legal-link">Contact</a>
+                <span class="legal-dot">·</span>
+                <a href="#footer" class="legal-link">MIT License</a>
+                <span class="legal-dot">·</span>
+                <a href="https://github.com/Jayurana/solar-system-3d" target="_blank" rel="noopener" class="legal-link">GitHub Repo</a>
+            </div>
+            <div class="legal-right font-mono">
+                <span>Page Last Updated: <strong class="date-highlight">May 27, 2026</strong></span>
+                <span class="dev-separator">·</span>
+                <span>Responsible Dev: <strong class="dev-highlight">Jagdish Girase</strong></span>
+            </div>
         </div>
     </footer>
 

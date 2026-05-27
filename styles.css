@@ -1994,79 +1994,239 @@ section {
 }
 
 /* ==========================================================================
-   Footer Layout
+   Footer Layout (NASA.gov-Inspired)
    ========================================================================== */
 .main-footer {
-    border-top: 1px solid var(--border-glass);
-    background: rgba(6, 6, 18, 0.95);
-    padding: 80px 24px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #000000; /* Pure dark black */
+    padding: 60px 80px 0;
+    color: #ffffff;
+    position: relative;
+    z-index: 10;
 }
 
-.footer-container {
+.main-footer a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-footer a:hover {
+    color: #ffffff;
+}
+
+.main-footer .footer-container {
     max-width: 1400px;
-    margin: 0 auto 60px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1.4fr repeat(3, 1fr) 1.2fr;
+    gap: 48px;
+    padding-bottom: 0; /* Let divider handle spacing via margin-top */
 }
 
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.footer-desc {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    max-width: 320px;
-}
-
-.footer-links-group {
+.footer-col {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.footer-links-title {
-    font-size: 0.8rem;
+/* Brand block */
+.brand-col {
+    gap: 12px;
+}
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 18px; /* NASA brand wordmark size */
     font-weight: 700;
-    color: var(--text-primary);
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+.footer-version {
+    font-family: var(--font-mono);
+    font-size: 11px; /* small version tag */
+    color: rgba(255, 255, 255, 0.4); /* white/40% */
+    letter-spacing: 0.1em;
+}
+
+.footer-description {
+    font-size: 14px; /* brand description size */
+    color: rgba(255, 255, 255, 0.6); /* white/60% */
+    line-height: 1.7;
+    max-width: 220px;
+    margin: 0;
+}
+
+.brand-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.footer-about-link {
+    font-size: 13px; /* 13px white/60% */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Cockpit CTA */
+.cockpit-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cta-arrow-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #E84B1A; /* NASA orange-red */
+    border-radius: 50%;
+    font-size: 0.65rem;
+    color: #ffffff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cockpit-cta-btn:hover .cta-arrow-circle {
+    transform: translateX(4px);
+    background-color: #f97316; /* dynamic hover orange */
+}
+
+/* Navigation columns */
+.nav-col {
+    gap: 12px;
+}
+
+.col-label {
+    font-family: var(--font-mono);
+    font-size: 14px; /* 14px Space Mono */
+    color: rgba(255, 255, 255, 0.5); /* white/50% */
+    letter-spacing: 0.15em;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
-.footer-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: var(--transition-normal);
-    display: inline-flex;
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Rely purely on line-height for links spacing */
+}
+
+.footer-nav-link {
+    font-family: var(--font-primary); /* Inter/system */
+    font-size: 14px; /* 14px */
+    color: rgba(255, 255, 255, 0.7); /* white/70% */
+    line-height: 2.2;
+    display: block;
+}
+
+/* Social columns */
+.social-col {
+    gap: 16px;
+}
+
+.social-icons-row {
+    display: flex;
+    gap: 12px;
     align-items: center;
+    margin-top: 4px;
+}
+
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px; /* 18px icon size */
+    transition: background-color 0.3s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.10); /* hover background */
+}
+
+.social-extra-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.social-text-link {
+    font-size: 13px; /* 13px */
+    color: rgba(255, 255, 255, 0.6); /* white/60% */
+}
+
+/* Divider & Bottom bar */
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    margin: 48px 0 0 0; /* Separating grid and legal bar */
+    width: 100%;
+}
+
+.footer-bottom-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0; /* padding 20px 0 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.legal-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
-.footer-link:hover {
-    color: var(--accent-blue);
-    padding-left: 4px;
+.legal-link {
+    font-size: 13px; /* 13px */
+    color: rgba(255, 255, 255, 0.5); /* white/50% */
 }
 
-.footer-ext-icon {
-    font-size: 0.65rem;
-    opacity: 0.6;
+.legal-dot {
+    color: rgba(255, 255, 255, 0.5); /* white/50% */
+    font-size: 13px;
+    padding: 0 6px;
+    user-select: none;
 }
 
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    border-top: 1px solid var(--border-glass);
-    padding-top: 30px;
-    text-align: center;
+.legal-right {
+    font-family: var(--font-mono);
+    font-size: 12px; /* 12px */
+    color: rgba(255, 255, 255, 0.4); /* white/40% */
 }
 
-.footer-bottom p {
-    color: var(--text-muted);
-    font-size: 0.75rem;
+.date-highlight {
+    color: rgba(255, 255, 255, 0.8); /* white/80% */
+    font-weight: 700;
+}
+
+.dev-separator {
+    color: rgba(255, 255, 255, 0.4); /* white/40% */
+    margin: 0 6px;
+}
+
+.dev-highlight {
+    color: rgba(255, 255, 255, 0.8); /* white/80% */
+    font-weight: 700;
 }
 
 /* ==========================================================================
@@ -2262,8 +2422,23 @@ section {
         font-size: 1.1rem;
     }
 
-    .footer-container {
+    .main-footer {
+        padding: 60px 24px 0;
+    }
+
+    .main-footer .footer-container {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding-bottom: 0;
+    }
+
+    .desktop-only-label {
+        display: none;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
 }
