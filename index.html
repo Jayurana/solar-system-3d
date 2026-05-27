@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <!-- FontAwesome for Icons -->
@@ -290,25 +290,27 @@
 
         <!-- Planet Encyclopedia Section -->
         <section id="encyclopedia" class="encyclopedia-section">
-            <div class="section-header">
-                <div class="badge font-mono">> COSMIC ATLAS REGISTRY</div>
+            <div class="section-header editorial-header">
+                <span class="cosmic-eyebrow font-mono">> COSMIC ATLAS REGISTRY</span>
                 <h2 class="section-title font-orbitron">Celestial Database</h2>
-                <p class="section-subtitle">Examine composition metrics, escape velocities, atmospheric gases, and dynamic calculated positions.</p>
+                <p class="section-subtitle">Examine composition metrics, escape velocities, atmospheric gases, and orbital telemetry.</p>
             </div>
 
             <!-- Encyclopedia Filters and Search -->
             <div class="encyclopedia-controls">
+                <div class="filter-container">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">All Bodies</button>
+                        <button class="filter-btn" data-filter="star">Stars</button>
+                        <button class="filter-btn" data-filter="terrestrial">Terrestrial</button>
+                        <button class="filter-btn" data-filter="gas-giant">Gas Giants</button>
+                        <button class="filter-btn" data-filter="ice-giant">Ice Giants</button>
+                        <button class="filter-btn" data-filter="dwarf">Dwarf Planets</button>
+                    </div>
+                </div>
                 <div class="search-box">
                     <i class="fa-solid fa-crosshairs search-icon"></i>
-                    <input type="text" id="planet-search" placeholder="Target planetary scan...">
-                </div>
-                <div class="filter-tabs">
-                    <button class="filter-btn active" data-filter="all">All Bodies</button>
-                    <button class="filter-btn" data-filter="star">Stars</button>
-                    <button class="filter-btn" data-filter="terrestrial">Terrestrial</button>
-                    <button class="filter-btn" data-filter="gas-giant">Gas Giants</button>
-                    <button class="filter-btn" data-filter="ice-giant">Ice Giants</button>
-                    <button class="filter-btn" data-filter="dwarf">Dwarf Planets</button>
+                    <input type="text" id="planet-search" placeholder="SCAN PAYLOAD...">
                 </div>
             </div>
 

@@ -377,7 +377,10 @@ const celestialData = [
         escapeVelocity: "615.0 km/s",
         atmosphere: "Hydrogen (73%), Helium (25%)",
         core: "Hot, dense nuclear fusion reactor core",
-        stats: { mass: 100, radius: 100, moons: 0 }
+        stats: { mass: 100, radius: 100, moons: 0 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+        orbitalVelocity: "220.0 km/s",
+        classBadge: "STAR CLASS"
     },
     {
         id: "mercury",
@@ -397,7 +400,10 @@ const celestialData = [
         escapeVelocity: "4.3 km/s",
         atmosphere: "Oxygen, Sodium, Hydrogen (Exosphere)",
         core: "Molten liquid iron-nickel core",
-        stats: { mass: 0.055, radius: 3.8, moons: 0 }
+        stats: { mass: 0.055, radius: 3.8, moons: 0 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg",
+        orbitalVelocity: "47.4 km/s",
+        classBadge: "TERRESTRIAL CLASS"
     },
     {
         id: "venus",
@@ -417,7 +423,10 @@ const celestialData = [
         escapeVelocity: "10.36 km/s",
         atmosphere: "Carbon Dioxide (96.5%), Nitrogen (3.5%)",
         core: "Solid metallic core with convective fluid mantle",
-        stats: { mass: 0.815, radius: 9.5, moons: 0 }
+        stats: { mass: 0.815, radius: 9.5, moons: 0 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+        orbitalVelocity: "35.0 km/s",
+        classBadge: "TERRESTRIAL CLASS"
     },
     {
         id: "earth",
@@ -437,7 +446,10 @@ const celestialData = [
         escapeVelocity: "11.18 km/s",
         atmosphere: "Nitrogen (78%), Oxygen (21%), Argon (0.9%)",
         core: "Solid iron-nickel inner core",
-        stats: { mass: 1.0, radius: 10, moons: 1 }
+        stats: { mass: 1.0, radius: 10, moons: 1 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+        orbitalVelocity: "29.8 km/s",
+        classBadge: "TERRESTRIAL CLASS"
     },
     {
         id: "mars",
@@ -457,7 +469,10 @@ const celestialData = [
         escapeVelocity: "5.03 km/s",
         atmosphere: "Carbon Dioxide (95%), Nitrogen (2.6%)",
         core: "Solid iron-sulfur core (non-magnetic)",
-        stats: { mass: 0.107, radius: 5.3, moons: 2 }
+        stats: { mass: 0.107, radius: 5.3, moons: 2 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+        orbitalVelocity: "24.1 km/s",
+        classBadge: "TERRESTRIAL CLASS"
     },
     {
         id: "jupiter",
@@ -477,7 +492,10 @@ const celestialData = [
         escapeVelocity: "59.5 km/s",
         atmosphere: "Hydrogen (89.8%), Helium (10.2%)",
         core: "Dense rock, metal, and exotic high-pressure ice core",
-        stats: { mass: 31.78, radius: 55, moons: 95 }
+        stats: { mass: 31.78, radius: 55, moons: 95 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+        orbitalVelocity: "13.1 km/s",
+        classBadge: "GAS GIANT"
     },
     {
         id: "saturn",
@@ -497,7 +515,10 @@ const celestialData = [
         escapeVelocity: "35.5 km/s",
         atmosphere: "Hydrogen (96.3%), Helium (3.2%)",
         core: "Rocky iron-nickel core surrounded by liquid hydrogen",
-        stats: { mass: 9.52, radius: 46, moons: 100 }
+        stats: { mass: 9.52, radius: 46, moons: 100 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+        orbitalVelocity: "9.7 km/s",
+        classBadge: "GAS GIANT"
     },
     {
         id: "uranus",
@@ -517,7 +538,10 @@ const celestialData = [
         escapeVelocity: "21.3 km/s",
         atmosphere: "Hydrogen (82.5%), Helium (15.2%), Methane (2.3%)",
         core: "Silicate rock and iron-nickel core",
-        stats: { mass: 1.45, radius: 19.8, moons: 28 }
+        stats: { mass: 1.45, radius: 19.8, moons: 28 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+        orbitalVelocity: "6.8 km/s",
+        classBadge: "ICE GIANT"
     },
     {
         id: "neptune",
@@ -537,7 +561,10 @@ const celestialData = [
         escapeVelocity: "23.5 km/s",
         atmosphere: "Hydrogen (80%), Helium (19%), Methane (1.5%)",
         core: "Iron, nickel, and silicate rock core",
-        stats: { mass: 1.71, radius: 19.3, moons: 16 }
+        stats: { mass: 1.71, radius: 19.3, moons: 16 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+        orbitalVelocity: "5.4 km/s",
+        classBadge: "ICE GIANT"
     },
     {
         id: "pluto",
@@ -557,7 +584,10 @@ const celestialData = [
         escapeVelocity: "1.21 km/s",
         atmosphere: "Nitrogen (99%), Methane, Carbon Monoxide",
         core: "Dense silicate core wrapped in water-ice mantle",
-        stats: { mass: 0.002, radius: 1.8, moons: 5 }
+        stats: { mass: 0.002, radius: 1.8, moons: 5 },
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Pluto_in_True_Color_-_High-Res.jpg",
+        orbitalVelocity: "4.7 km/s",
+        classBadge: "DWARF PLANET"
     }
 ];
 
@@ -580,42 +610,95 @@ function renderPlanetCards(data) {
     }
 
     data.forEach(body => {
+        // Create wrapper for Danilo Sierra style (so tags sit below the image)
+        const wrapper = document.createElement('div');
+        wrapper.className = 'planet-card-wrapper';
+        wrapper.setAttribute('data-id', body.id);
+        
+        // Define column grid widths and featured highlights
+        if (body.id === 'jupiter' || body.id === 'saturn') {
+            wrapper.classList.add('featured-card', 'grid-col-2');
+        } else if (body.id === 'earth') {
+            wrapper.classList.add('grid-col-2');
+        } else {
+            wrapper.classList.add('grid-col-1');
+        }
+
         const card = document.createElement('div');
-        card.className = 'planet-card glass';
+        card.className = 'planet-card';
         card.setAttribute('data-id', body.id);
         
+        const isFeatured = body.id === 'jupiter' || body.id === 'saturn';
+        const nameClass = isFeatured ? 'planet-title-default featured-title' : 'planet-title-default';
+
         card.innerHTML = `
-            <div class="planet-card-visual">
-                <div class="planet-orbit-line"></div>
-                <div class="planet-sphere ${body.class}"></div>
+            <img class="planet-card-image" src="${body.image}" alt="${body.name}" loading="lazy">
+            
+            <!-- Blinking status dot in top-right -->
+            <div class="status-dot-container">
+                ${isFeatured ? `<span class="featured-badge font-mono">FEATURED · SOL SYSTEM</span>` : ''}
+                <span class="blinking-dot">●</span>
             </div>
-            <div class="planet-card-info font-mono">
-                <span class="planet-type" style="color: var(--accent-blue)">[${body.type.toUpperCase()}]</span>
-                <h3 class="planet-name font-orbitron" style="margin-top: 5px;">${body.name}</h3>
-                <p class="planet-tagline" style="font-size: 0.8rem; opacity: 0.75; margin-bottom: 15px;">${body.tagline}</p>
-                <div class="planet-meta-stats">
-                    <div class="card-stat">
-                        <span class="card-stat-val">${body.gravity}</span>
-                        <span class="card-stat-lbl">GRAV</span>
-                    </div>
-                    <div class="card-stat">
-                        <span class="card-stat-val">${body.escapeVelocity.split(' ')[0]}</span>
-                        <span class="card-stat-lbl">ESCAPE</span>
-                    </div>
-                    <div class="card-stat">
-                        <span class="card-stat-val">${body.moons}</span>
-                        <span class="card-stat-lbl">MOONS</span>
-                    </div>
+            
+            <!-- Default Front Face Overlay -->
+            <div class="planet-default-overlay">
+                <h3 class="${nameClass}">${body.name}</h3>
+                <span class="planet-badge-default">${body.classBadge}</span>
+            </div>
+            
+            <!-- Hover Telemetry Stats Overlay -->
+            <div class="planet-hover-overlay">
+                <h3 class="planet-title-hover">${body.name}</h3>
+                <div class="telemetry-row">
+                    <span>DISTANCE FROM SUN</span>
+                    <span class="val-cyan">${body.id === 'sun' ? '0 km' : (parseFloat(body.distance.replace(/,/g, '')) / 1000000).toFixed(1) + 'M km'}</span>
                 </div>
+                <div class="telemetry-row">
+                    <span>ORBITAL VELOCITY</span>
+                    <span class="val-amber">${body.orbitalVelocity}</span>
+                </div>
+                <div class="telemetry-row">
+                    <span>GRAVITY FACTOR</span>
+                    <span class="val-white">${body.gravity}</span>
+                </div>
+                <a href="#encyclopedia" class="view-telemetry-link">→ View Full Telemetry</a>
             </div>
         `;
 
-        card.addEventListener('click', () => {
+        // Interactive beeps for card hover
+        card.addEventListener('mouseenter', () => {
+            if (typeof playBeep === 'function') {
+                playBeep(980, 0.03);
+            }
+        });
+
+        // Click actions
+        card.addEventListener('click', (e) => {
+            if (typeof playBeep === 'function') {
+                playBeep(640, 0.08);
+            }
             openPlanetModal(body);
             updateCockpitTarget(body);
         });
 
-        planetGrid.appendChild(card);
+        wrapper.appendChild(card);
+
+        // Compute tag below card
+        let categoryName = "";
+        if (body.type === "star") categoryName = "Star";
+        else if (body.type === "terrestrial") categoryName = "Terrestrial";
+        else if (body.type === "gas-giant") categoryName = "Gas Giant";
+        else if (body.type === "ice-giant") categoryName = "Ice Giant";
+        else if (body.type === "dwarf") categoryName = "Dwarf Planet";
+        
+        const distFormatted = body.id === 'sun' ? '0 km' : (parseFloat(body.distance.replace(/,/g, '')) / 1000000).toFixed(1) + 'M km';
+
+        const tags = document.createElement('div');
+        tags.className = 'planet-meta-tags';
+        tags.innerHTML = `<em>${categoryName}</em> · ${distFormatted}`;
+        wrapper.appendChild(tags);
+
+        planetGrid.appendChild(wrapper);
     });
 }
 
@@ -644,6 +727,12 @@ function filterAndSearchPlanets() {
         const matchesFilter = filter === 'all' || body.type === filter;
         return matchesSearch && matchesFilter;
     });
+
+    if (filter === 'all' && query === '') {
+        planetGrid.classList.add('all-active');
+    } else {
+        planetGrid.classList.remove('all-active');
+    }
 
     renderPlanetCards(filtered);
 }
@@ -1014,5 +1103,6 @@ window.addEventListener('load', () => {
     }
     
     // Render registry cards
+    planetGrid.classList.add('all-active');
     renderPlanetCards(celestialData);
 });
