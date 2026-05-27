@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION COSMOS - Holographic Space Observatory & Portal</title>
+    <meta name="description" content="Embark on the ultimate Cosmos Experience. Interact with WebGL sky maps, holographic orbits, real-time telemetry, space timeline, and trivia.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="observatory-mode">
+    <!-- Scanline Effect for Sci-Fi Monitor look -->
+    <div class="scanlines"></div>
+
+    <!-- Launch Deck Telemetry Loader -->
+    <div id="launch-deck" class="launch-screen">
+        <div class="launch-frame glass">
+            <div class="launch-header font-orbitron">
+                <i class="fa-solid fa-satellite brand-glow-icon"></i>
+                <h2>ORION COMMAND DECK</h2>
+                <div class="sys-tag font-mono">SYS.VER: 4.8.0.COSMOS</div>
+            </div>
+            
+            <div class="launch-terminal font-mono" id="launch-terminal">
+                <p>> Booting stellar telemetry kernels...</p>
+                <p>> Initializing local coordinate arrays...</p>
+                <p>> Establishing secure bridge to solar system database...</p>
+                <p>> Syncing 3D WebGL renderer pipeline...</p>
+                <p>> Loading synthesized audio wind loops...</p>
+                <p class="blink">> SYSTEM READY FOR ENGAGEMENT</p>
+            </div>
+
+            <div class="launch-progress-container">
+                <div class="launch-progress-bar" id="launch-loader"></div>
+            </div>
+
+            <button id="btn-engage-system" class="btn btn-primary btn-lg font-orbitron">
+                <i class="fa-solid fa-bolt"></i> INITIALIZE COSMIC BRIDGE
+            </button>
+        </div>
+    </div>
+
+    <!-- Starfield Fallback Canvas -->
+    <canvas id="starfield"></canvas>
+    
+    <!-- WebGL Background Canvas Container (Three.js WebGL) -->
+    <div id="canvas-container"></div>
+    <div class="nebula-overlay"></div>
+
+    <!-- Cosmic Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#hero" class="brand">
+                <i class="fa-solid fa-space-shuttle brand-icon"></i>
+                <span class="brand-text">ORION <span class="accent-text">COSMOS</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link active">Telemetry</a>
+                <a href="#deck" class="nav-link">Control Deck</a>
+                <a href="#encyclopedia" class="nav-link">Planets Database</a>
+                <a href="#timeline-sec" class="nav-link">Space Flight</a>
+                <a href="#quiz-sec" class="nav-link">Cosmic Trivia</a>
+            </nav>
+            <div class="header-actions">
+                <button id="audio-bridge-toggle" class="btn-icon" aria-label="Audio Bridge">
+                    <i class="fa-solid fa-tower-broadcast"></i>
+                </button>
+                <a href="#deck" class="btn btn-primary btn-sm">Enter cockpit</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer">
+        <button class="mobile-drawer-close" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="#hero" class="mobile-nav-link">Telemetry</a>
+            <a href="#deck" class="mobile-nav-link">Control Deck</a>
+            <a href="#encyclopedia" class="mobile-nav-link">Planets Database</a>
+            <a href="#timeline-sec" class="mobile-nav-link">Space Flight</a>
+            <a href="#quiz-sec" class="mobile-nav-link">Cosmic Trivia</a>
+        </nav>
+    </div>
+
+    <main class="cosmic-content">
+        <!-- Hero Telemetry Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="badge font-mono">> COSMIC FLIGHT PATH ACTIVE</div>
+                <h1 class="hero-title font-orbitron">THE HOLOGRAPHIC <br><span class="gradient-text">COSMOS PORTAL</span></h1>
+                <p class="hero-description">
+                    Unlock a virtual spaceship cockpit dashboard. Tap into dynamic WebGL orbits, monitor real-time planet telemetry readouts, and cross-examine exploration logs in a custom audio-synthesized environment.
+                </p>
+                <div class="hero-actions-container">
+                    <a href="#deck" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-compass"></i> Access Control Deck
+                    </a>
+                    <a href="#encyclopedia" class="btn btn-secondary btn-lg">
+                        <i class="fa-solid fa-database"></i> Planetary Registry
+                    </a>
+                </div>
+                <div class="hero-stats grid-telemetry">
+                    <div class="stat-item glass-mini">
+                        <span class="stat-lbl-mini font-mono">SECTOR</span>
+                        <span class="stat-val-mini font-orbitron">SOL-01</span>
+                    </div>
+                    <div class="stat-item glass-mini">
+                        <span class="stat-lbl-mini font-mono">3D RENDER</span>
+                        <span class="stat-val-mini font-orbitron accent-text">WEBGL_ACTIVE</span>
+                    </div>
+                    <div class="stat-item glass-mini">
+                        <span class="stat-lbl-mini font-mono">COSMIC GRID</span>
+                        <span class="stat-val-mini font-orbitron">ALIGN_OK</span>
+                    </div>
+                    <div class="stat-item glass-mini">
+                        <span class="stat-lbl-mini font-mono">SYS HUM</span>
+                        <span class="stat-val-mini font-orbitron" id="hum-hz">55 HZ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orbit Graphics and Info Readouts -->
+            <div class="hero-visual telemetry-observatory glass">
+                <div class="telemetry-grid-header font-mono">
+                    <span>GRID OVERVIEW [SECTOR: SOL-01]</span>
+                    <span class="pulse-indicator"></span>
+                </div>
+                <div class="cosmic-ring-container">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                    <div class="center-sun"></div>
+                </div>
+                <div class="telemetry-readouts font-mono">
+                    <div class="readout-row"><span class="label">COSMIC NOISE:</span> <span class="val" id="noise-db">-76.4 dB</span></div>
+                    <div class="readout-row"><span class="label">SOLAR WINDS:</span> <span class="val">421.8 km/s</span></div>
+                    <div class="readout-row"><span class="label">GRAV FACTOR:</span> <span class="val">1.000g (Earth Base)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Control Deck Cockpit Section -->
+        <section id="deck" class="deck-section">
+            <div class="section-header text-center">
+                <div class="badge font-mono">> HOLOGRAPHIC STATION ENABLED</div>
+                <h2 class="section-title font-orbitron">Solar System Flight Deck</h2>
+                <p class="section-subtitle">
+                    Interact directly with real-time orbits. Shift between physical orbits and constellations, alter visual flight speeds, and isolate telemetry audio bands.
+                </p>
+            </div>
+            
+            <div class="cockpit-layout">
+                <!-- Left Sidebar Control Deck -->
+                <div class="cockpit-panel glass panel-left font-mono">
+                    <div class="panel-header font-orbitron">
+                        <i class="fa-solid fa-sliders"></i> DECK CONTROLS
+                    </div>
+                    
+                    <!-- Sky Map Settings -->
+                    <div class="panel-section">
+                        <span class="section-title-mini">SKY MAP MODE</span>
+                        <div class="deck-btn-group">
+                            <button id="btn-mode-orbits" class="btn btn-secondary btn-sm active font-orbitron">SOLAR ORBITS</button>
+                            <button id="btn-mode-constellations" class="btn btn-secondary btn-sm font-orbitron">CONSTELLATIONS</button>
+                        </div>
+                    </div>
+
+                    <!-- Ambient Soundboard Mixers -->
+                    <div class="panel-section">
+                        <span class="section-title-mini">SYNTH AUDIO MIXER</span>
+                        <div class="sound-mixer-row">
+                            <span class="mixer-lbl">WARP HUM (55Hz)</span>
+                            <input type="range" id="vol-hum" min="0" max="100" value="50" class="cockpit-slider">
+                        </div>
+                        <div class="sound-mixer-row">
+                            <span class="mixer-lbl">STELLAR WIND (Noise)</span>
+                            <input type="range" id="vol-wind" min="0" max="100" value="30" class="cockpit-slider">
+                        </div>
+                        <div class="sound-mixer-row">
+                            <span class="mixer-lbl">TELEMETRY DECAY (Beeps)</span>
+                            <input type="range" id="vol-beeps" min="0" max="100" value="40" class="cockpit-slider">
+                        </div>
+                    </div>
+
+                    <!-- Diagnostic logs -->
+                    <div class="panel-section console-diagnostic">
+                        <span class="section-title-mini">DIAGNOSTIC LOGS</span>
+                        <div class="terminal-logs" id="deck-terminal-logs">
+                            <p class="log-info">> Orbit calculation sync active...</p>
+                            <p class="log-info">> Deep space audio stream initialized...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center 3D Space Scope Simulator -->
+                <div class="cockpit-center">
+                    <div class="simulator-deck">
+                        <div class="deck-header">
+                            <div class="deck-status">
+                                <span class="status-indicator live"></span>
+                                <span class="status-text font-orbitron">STATION: MODELING ACTIVE</span>
+                            </div>
+                            <div class="deck-title font-orbitron">SIMULATOR LINK</div>
+                            <div class="deck-controls">
+                                <button id="btn-fullscreen" class="btn-deck" title="Toggle Fullscreen">
+                                    <i class="fa-solid fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="deck-viewport" id="iframe-container">
+                            <iframe 
+                                id="solarsystemscope-iframe"
+                                src="https://www.solarsystemscope.com/iframe" 
+                                allow="fullscreen; autoplay"
+                                title="Solar System Scope 3D Simulation">
+                            </iframe>
+                        </div>
+                        <div class="deck-footer">
+                            <div class="footer-tip">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Pan and zoom directly inside the holographic simulation screen. Double click celestial bodies for automatic focus shifts.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar Control Deck -->
+                <div class="cockpit-panel glass panel-right font-mono">
+                    <div class="panel-header font-orbitron">
+                        <i class="fa-solid fa-bolt"></i> WARP METRICS
+                    </div>
+
+                    <!-- Speed controllers -->
+                    <div class="panel-section">
+                        <span class="section-title-mini">SIMULATION VELOCITY</span>
+                        <div class="warp-slider-container">
+                            <input type="range" id="warp-speed-slider" min="1" max="10" value="1" class="cockpit-slider">
+                            <div class="warp-labels font-orbitron">
+                                <span>1x</span>
+                                <span>Warp 5</span>
+                                <span>Warp 10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orbit calculation diagnostics -->
+                    <div class="panel-section orbital-readout">
+                        <span class="section-title-mini">SYSTEM ORBITAL TELEMETRY</span>
+                        <div class="telemetry-bar-row">
+                            <span class="lbl">SUN EXPANSE</span>
+                            <div class="telemetry-percentage-track"><div class="fill" style="width: 99.8%"></div></div>
+                            <span class="percentage">99.8%</span>
+                        </div>
+                        <div class="telemetry-bar-row">
+                            <span class="lbl">GRAVITY FACTOR</span>
+                            <div class="telemetry-percentage-track"><div class="fill" style="width: 48%"></div></div>
+                            <span class="percentage">48%</span>
+                        </div>
+                        <div class="telemetry-bar-row">
+                            <span class="lbl">DENSITY CAP</span>
+                            <div class="telemetry-percentage-track"><div class="fill" style="width: 76%"></div></div>
+                            <span class="percentage">76%</span>
+                        </div>
+                    </div>
+
+                    <!-- Target Sector Detail panel -->
+                    <div class="panel-section active-planet-telemetry">
+                        <span class="section-title-mini">TARGET BODY STATUS</span>
+                        <div class="target-card-small glass-mini">
+                            <div class="t-name font-orbitron" id="target-name">SUN (Base)</div>
+                            <div class="t-row"><span class="lbl">Distance:</span> <span class="val">0 km</span></div>
+                            <div class="t-row"><span class="lbl">Orbital Vel:</span> <span class="val">220 km/s</span></div>
+                            <div class="t-row"><span class="lbl">Moon System:</span> <span class="val">None</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planet Encyclopedia Section -->
+        <section id="encyclopedia" class="encyclopedia-section">
+            <div class="section-header">
+                <div class="badge font-mono">> COSMIC ATLAS REGISTRY</div>
+                <h2 class="section-title font-orbitron">Celestial Database</h2>
+                <p class="section-subtitle">Examine composition metrics, escape velocities, atmospheric gases, and dynamic calculated positions.</p>
+            </div>
+
+            <!-- Encyclopedia Filters and Search -->
+            <div class="encyclopedia-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-crosshairs search-icon"></i>
+                    <input type="text" id="planet-search" placeholder="Target planetary scan...">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Bodies</button>
+                    <button class="filter-btn" data-filter="star">Stars</button>
+                    <button class="filter-btn" data-filter="terrestrial">Terrestrial</button>
+                    <button class="filter-btn" data-filter="gas-giant">Gas Giants</button>
+                    <button class="filter-btn" data-filter="ice-giant">Ice Giants</button>
+                    <button class="filter-btn" data-filter="dwarf">Dwarf Planets</button>
+                </div>
+            </div>
+
+            <!-- Planet Cards Grid -->
+            <div class="planet-grid" id="planet-grid">
+                <!-- Dynamically loaded by Javascript -->
+            </div>
+        </section>
+
+        <!-- Space Missions Section -->
+        <section id="timeline-sec" class="missions-section">
+            <div class="section-header text-center">
+                <div class="badge font-mono">> FLIGHT PLAN LOGS</div>
+                <h2 class="section-title font-orbitron">Deep Space Missions</h2>
+                <p class="section-subtitle">A historical record of humanity's voyager crafts navigating the planetary systems.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">1977</span>
+                        <h3 class="timeline-title">Voyager 1 & 2</h3>
+                        <p class="timeline-desc">Flew by gas giants, providing first detailed atmospheric maps. Voyager 1 is now over 22 billion km from Earth in interstellar space.</p>
+                        <span class="timeline-target">Interstellar Voyager</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">1990</span>
+                        <h3 class="timeline-title">Hubble Space Observatory</h3>
+                        <p class="timeline-desc">Orbiting observatory delivering optical clarity unfiltered by atmosphere. Uncovered rate of expansion of the universe.</p>
+                        <span class="timeline-target">Low Earth Orbit</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">1997</span>
+                        <h3 class="timeline-title">Cassini-Huygens</h3>
+                        <p class="timeline-desc">Thirteen years in Saturn orbit analyzing its rings and moons, placing the Huygens probe onto the methane lakes of Titan.</p>
+                        <span class="timeline-target">Saturn Orbit</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">2006</span>
+                        <h3 class="timeline-title">New Horizons</h3>
+                        <p class="timeline-desc">Flew through the Pluto system at 58,500 km/h, mapping its frozen glaciers, nitrogen atmosphere, and major moon Charon.</p>
+                        <span class="timeline-target">Kuiper Belt</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">2020</span>
+                        <h3 class="timeline-title">Perseverance & Ingenuity</h3>
+                        <p class="timeline-desc">Landed inside Jezero Crater on Mars to locate traces of micro-organic life, testing the first planetary atmospheric rotorcraft.</p>
+                        <span class="timeline-target">Jezero Crater</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <span class="timeline-date font-orbitron">2021</span>
+                        <h3 class="timeline-title">James Webb (JWST)</h3>
+                        <p class="timeline-desc">Stationed at L2 Lagrange point, deploying its gold primary mirror to observe deep cosmic infrared light from the universe's dawn.</p>
+                        <span class="timeline-target">Lagrange Point 2</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Space Trivia Section -->
+        <section id="quiz-sec" class="quiz-section">
+            <div class="quiz-container glass">
+                <div class="quiz-header">
+                    <div class="badge font-mono">> ENCRYPTED TRIVIA LOGS</div>
+                    <h2 class="quiz-section-title font-orbitron">Cosmic Knowledge Verification</h2>
+                    <p class="quiz-subtitle">Verify your operational knowledge of the Sol-01 orbital sector.</p>
+                </div>
+                
+                <div class="quiz-body" id="quiz-body">
+                    <!-- Intro Screen -->
+                    <div id="quiz-intro" class="quiz-screen active">
+                        <div class="quiz-art-container">
+                            <i class="fa-solid fa-space-shuttle quiz-rocket-icon"></i>
+                        </div>
+                        <h3 class="font-orbitron">Ready to initiate test sequence?</h3>
+                        <p>10 planetary physics and exploration logs questions to evaluate cosmic authorization level.</p>
+                        <button id="btn-start-quiz" class="btn btn-primary btn-lg font-orbitron">START EXAM</button>
+                    </div>
+
+                    <!-- Question Screen -->
+                    <div id="quiz-question-screen" class="quiz-screen">
+                        <div class="quiz-progress-bar-container">
+                            <div class="quiz-progress-bar" id="quiz-progress"></div>
+                        </div>
+                        <div class="quiz-question-meta font-mono">
+                            <span id="question-index">EXAM: Q1/10</span>
+                            <span id="current-score">SCORE: 000</span>
+                        </div>
+                        <h3 class="quiz-question-text" id="question-text">Target query text load...</h3>
+                        <div class="quiz-options" id="quiz-options-container">
+                            <!-- Generated dynamically by app.js -->
+                        </div>
+                        <div class="quiz-feedback-box font-mono" id="quiz-feedback">
+                            <i class="fa-solid fa-check feedback-icon"></i>
+                            <span class="feedback-text">Feedback description details loaded here.</span>
+                        </div>
+                        <button id="btn-next-question" class="btn btn-primary font-orbitron" disabled>NEXT SEGMENT <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- Results Screen -->
+                    <div id="quiz-results-screen" class="quiz-screen">
+                        <div class="results-art">
+                            <i class="fa-solid fa-id-card brand-glow-icon" style="font-size: 4rem;"></i>
+                        </div>
+                        <h3 class="results-title font-orbitron">EXAMINATION COMPLETE</h3>
+                        <div class="score-display">
+                            <span class="score-number font-orbitron" id="final-score">0 / 10</span>
+                            <span class="score-label font-mono">VERIFIED COUNT</span>
+                        </div>
+                        <p class="results-feedback font-mono" id="results-feedback-text">Feedback evaluation...</p>
+                        <div class="results-actions">
+                            <button id="btn-restart-quiz" class="btn btn-secondary font-orbitron"><i class="fa-solid fa-rotate-right"></i> RETRY EXAM</button>
+                            <a href="#deck" class="btn btn-primary font-orbitron"><i class="fa-solid fa-chevron-left"></i> COSMIC DECK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Holographic Planet Detail Modal -->
+    <div class="modal" id="planet-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container glass">
+            <button class="modal-close" aria-label="Close scans">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-content">
+                <div class="modal-left">
+                    <div class="modal-sphere-container">
+                        <!-- Orbiting 3D-styled CSS planetary sphere -->
+                        <div class="modal-planet-sphere" id="modal-sphere"></div>
+                        <div class="modal-planet-shadow"></div>
+                    </div>
+                    <div class="modal-stats-grid" id="modal-key-stats">
+                        <!-- Dynamically filled by app.js -->
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <div class="modal-header-info">
+                        <span class="modal-tag font-mono" id="modal-type">TERRESTRIAL CLASS</span>
+                        <h2 class="modal-title font-orbitron" id="modal-name">PLANET NAME</h2>
+                        <p class="modal-tagline font-mono" id="modal-tagline">Telemetry designation text...</p>
+                    </div>
+
+                    <!-- Modal Nav Tabs -->
+                    <div class="modal-tabs">
+                        <button class="modal-tab active font-orbitron" data-tab="overview">OVERVIEW</button>
+                        <button class="modal-tab font-orbitron" data-tab="structure">STRUCTURE</button>
+                        <button class="modal-tab font-orbitron" data-tab="orbit">TELEMETRY</button>
+                    </div>
+
+                    <!-- Modal Tab Contents -->
+                    <div class="modal-tab-contents">
+                        <div class="modal-tab-pane active" id="tab-overview">
+                            <p class="modal-paragraph" id="modal-overview-text">Loading...</p>
+                        </div>
+                        <div class="modal-tab-pane" id="tab-structure">
+                            <p class="modal-paragraph" id="modal-structure-text">Loading...</p>
+                        </div>
+                        <div class="modal-tab-pane" id="tab-orbit">
+                            <!-- Live orbital trackers -->
+                            <div class="live-orbit-tracker-box font-mono">
+                                <div class="tracker-title font-orbitron">> LIVE DECK CALCULATION</div>
+                                <div class="tracker-row">
+                                    <span class="lbl">REAL-TIME POSITION:</span>
+                                    <span class="val accent-text" id="live-distance-val">0.00000000 km</span>
+                                </div>
+                                <div class="tracker-row">
+                                    <span class="lbl">ORBITAL VELOCITY:</span>
+                                    <span class="val" id="live-speed-val">0.00 km/s</span>
+                                </div>
+                                <div class="tracker-row">
+                                    <span class="lbl">GRAVITY FACTOR:</span>
+                                    <span class="val" id="live-gravity-val">0.00g</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stats-bars" id="modal-bars-container">
+                                <!-- Comparisons to Earth -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fact Alert Box -->
+                    <div class="modal-alert-box">
+                        <div class="alert-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="alert-content">
+                            <span class="alert-title font-orbitron">GEOLOGICAL RECORD</span>
+                            <p class="alert-text" id="modal-cosmic-fact">Fun planetary details...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cosmic Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand font-mono">
+                <a href="#hero" class="brand">
+                    <i class="fa-solid fa-space-shuttle brand-icon"></i>
+                    <span class="brand-text">ORION <span class="accent-text">COSMOS</span></span>
+                </a>
+                <p class="footer-desc">An interactive deep-space virtual control bridge mapping the telemetry paths of our solar system orbits.</p>
+            </div>
+            <div class="footer-links-group font-mono">
+                <span class="footer-links-title font-orbitron">GRID MAP</span>
+                <a href="#hero" class="footer-link">Telemetry</a>
+                <a href="#deck" class="footer-link">Control Deck</a>
+                <a href="#encyclopedia" class="footer-link">Planets Database</a>
+                <a href="#quiz-sec" class="footer-link">Exam Terminal</a>
+            </div>
+            <div class="footer-links-group font-mono">
+                <span class="footer-links-title font-orbitron">EXTERNAL CHANNELS</span>
+                <a href="https://science.nasa.gov/solar-system/" target="_blank" class="footer-link">NASA Science Portal <i class="fa-solid fa-angles-right footer-ext-icon"></i></a>
+                <a href="https://www.solarsystemscope.com/" target="_blank" class="footer-link">Solar System Scope <i class="fa-solid fa-angles-right footer-ext-icon"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Orion Cosmos Terminal. Licensed telemetry link feeds. Powered by Three.js.</p>
+        </div>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js Space Background Controller -->
+    <script src="space-bg.js"></script>
+    <!-- Javascript Script -->
+    <script src="app.js"></script>
+</body>
+</html>
