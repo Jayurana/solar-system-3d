@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Webb Space Telescope — ORION COSMOS Space Flight</title>
+    <meta name="description" content="Explore NASA's James Webb Space Telescope (JWST) mission details, specifications, science themes, and discoveries in this premium Flareum-inspired spaceflight deck.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tabler Icons Webfont -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+    <style>
+        /* ==========================================================================
+           GLOBAL VARIABLES & RESET (Flareum Inspired)
+           ========================================================================== */
+        :root {
+            --bg-black: #000000;
+            --accent-primary: #00B4FF;     /* JWST Cyan Blue */
+            --accent-secondary: #FFD700;   /* JWST Gold Mirror */
+            --text-primary: rgba(255, 255, 255, 0.9);
+            --text-secondary: rgba(255, 255, 255, 0.5);
+            --accent-geom: rgba(0, 180, 255, 0.08);
+            --border-color: rgba(0, 180, 255, 0.2);
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 0 !important; /* Zero shadows & flat design style */
+            outline: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-black);
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Scientific Grid background overlay */
+        .scientific-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 180, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 180, 255, 0.015) 1px, transparent 1px);
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 24px;
+            }
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 180, 255, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Zero shadow styles */
+        * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        /* ==========================================================================
+           STICKY NAVIGATION BAR
+           ========================================================================== */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 180, 255, 0.15);
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-brand-text {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-indicator {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-primary);
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            transition: var(--transition);
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+
+        .btn-launch-mission {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            border: 1px solid rgba(0, 180, 255, 0.4);
+            padding: 24px 40px;
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-launch-mission:hover {
+            background-color: var(--accent-primary);
+            color: #000000;
+            border-color: var(--accent-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .top-nav {
+                padding: 0 24px;
+            }
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            border-left: 1px solid var(--border-color);
+            z-index: 2000;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer-close {
+            align-self: flex-end;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .mobile-nav-link {
+            font-family: var(--font-display);
+            font-size: 18px;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+            display: none;
+        }
+
+        .drawer-overlay.active {
+            display: block;
+        }
+
+        /* ==========================================================================
+           FULL-BLEED HERO SECTION (100vh)
+           ========================================================================== */
+        #jwst-hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+        }
+
+        /* Parallax Background Canvas */
+        .hero-canvas-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Parallax Image Fallback */
+        .hero-image-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            will-change: transform;
+            background-image: url('assets/jwst_background.jpg');
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 20, 40, 0.85) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding-top: 80px;
+        }
+
+        /* 2-column grid for Hero section */
+        .hero-grid-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-left-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-right-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s,
+                        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+            width: 100%;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            padding: 10px;
+            border: 1px solid rgba(0, 180, 255, 0.15);
+            background: rgba(0, 0, 0, 0.4);
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .hero-image-frame .corner-accents {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+        }
+
+        .hero-image-frame .corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: var(--accent-primary);
+            border-style: solid;
+        }
+
+        .hero-image-frame .corner-tl {
+            top: -2px;
+            left: -2px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .hero-image-frame .corner-br {
+            bottom: -2px;
+            right: -2px;
+            border-width: 0 2px 2px 0;
+        }
+
+        .hero-jwst-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            filter: brightness(0.9);
+            transition: var(--transition);
+            animation: float-tele 6s ease-in-out infinite;
+        }
+
+        .hero-jwst-img:hover {
+            filter: brightness(1.1);
+        }
+
+        @keyframes float-tele {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-left-col {
+                align-items: center;
+            }
+            .hero-subheading {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-image-frame {
+                max-width: 380px;
+            }
+            #jwst-hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 60px;
+            }
+        }
+
+        .eyebrow-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent-primary);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .hero-title-container {
+            margin-bottom: 30px;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: 92px;
+            font-weight: 300;
+            line-height: 0.95;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .hero-headline .word-wrapper {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-headline .stagger-word {
+            display: block;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hero-subheading {
+            font-family: var(--font-body);
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 580px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;
+        }
+
+        .btn-cta {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .btn-cta-primary {
+            background-color: var(--accent-primary);
+            color: #000000;
+            border: 1px solid var(--accent-primary);
+            padding: 48px 48px;
+        }
+
+        .btn-cta-primary:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 180, 255, 0.85);
+            box-shadow: 0 0 20px rgba(0,180,255,0.4) !important;
+        }
+
+        .btn-cta-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 16px 36px;
+        }
+
+        .btn-cta-secondary:hover {
+            transform: scale(1.05);
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 24px;
+            cursor: pointer;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 12px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 56px;
+                line-height: 1.0;
+            }
+            .hero-subheading {
+                font-size: 18px;
+            }
+            .hero-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .btn-cta {
+                width: 100%;
+                text-align: center;
+            }
+            .btn-cta-primary {
+                padding: 24px 24px; /* Scaled down for mobile usability */
+            }
+            .btn-cta-secondary {
+                padding: 16px 24px;
+            }
+        }
+
+        /* ==========================================================================
+           REVEAL ON SCROLL FRAMEWORK
+           ========================================================================== */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-on-scroll.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           MISSION OVERVIEW SECTION
+           ========================================================================== */
+        #jwst-overview {
+            padding: 100px 0;
+            background-color: #000000;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-honeycomb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.02;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(0, 180, 255, 0.5) 15%, transparent 15%);
+            background-size: 30px 30px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .overview-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section-heading {
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .overview-body {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.9;
+        }
+
+        .overview-body p {
+            margin-bottom: 20px;
+        }
+
+        .overview-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-cyan {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .overview-right {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 180, 255, 0.05);
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            padding: 30px 24px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 180, 255, 0.08);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 992px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .section-heading {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .overview-right {
+                grid-template-columns: 1fr;
+            }
+            .stat-card {
+                padding: 24px;
+            }
+        }
+
+        /* ==========================================================================
+           INTERACTIVE: JWST MIRROR SHOWCASE
+           ========================================================================== */
+        #jwst-mirror {
+            position: relative;
+            padding: 120px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            overflow: hidden;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mirror-parallax-bg {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .mirror-content-overlay {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        /* Custom frame accent border and corner frame elements */
+        .mirror-border-wrap {
+            position: relative;
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            padding: 60px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .mirror-border-wrap::before, .mirror-border-wrap::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: var(--accent-primary);
+            border-style: solid;
+            pointer-events: none;
+        }
+
+        /* top left */
+        .mirror-border-wrap::before {
+            top: -2px;
+            left: -2px;
+            border-width: 2px 0 0 2px;
+        }
+
+        /* bottom right */
+        .mirror-border-wrap::after {
+            bottom: -2px;
+            right: -2px;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* Additional corner decoration */
+        .mirror-corner-topright, .mirror-corner-bottomleft {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: var(--accent-primary);
+            border-style: solid;
+            pointer-events: none;
+        }
+        .mirror-corner-topright {
+            top: -2px;
+            right: -2px;
+            border-width: 2px 2px 0 0;
+        }
+        .mirror-corner-bottomleft {
+            bottom: -2px;
+            left: -2px;
+            border-width: 0 0 2px 2px;
+        }
+
+        .mirror-showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .mirror-text-block {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .mirror-title {
+            font-size: 56px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .mirror-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Interactive SVG mirror structure */
+        .mirror-visual-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mirror-svg-wrapper {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1;
+            margin-bottom: 30px;
+        }
+
+        .mirror-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mirror-seg {
+            fill: rgba(255, 215, 0, 0.15); /* Faint gold */
+            stroke: var(--accent-secondary);
+            stroke-width: 1.2px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .mirror-seg:hover {
+            fill: var(--accent-secondary);
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+        }
+
+        .mirror-seg.active-seg {
+            fill: var(--accent-secondary);
+            stroke: #ffffff;
+        }
+
+        .center-hole {
+            fill: #000000;
+            stroke: var(--accent-primary);
+            stroke-width: 1.2px;
+        }
+
+        .mirror-panel-readout {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(0, 180, 255, 0.04);
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            padding: 24px;
+            min-height: 110px;
+        }
+
+        .readout-title {
+            font-family: var(--font-display);
+            font-size: 13px;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        .readout-txt {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .mirror-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .mirror-border-wrap {
+                padding: 40px 24px;
+            }
+            .mirror-title {
+                font-size: 40px;
+            }
+        }
+
+        /* ==========================================================================
+           🌟 KEY FACTS GRID (4-column specification grid)
+           ========================================================================== */
+        #jwst-specs {
+            padding: 100px 0;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .specs-section-title {
+            font-size: 56px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .specs-section-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .spec-card {
+            background: rgba(0, 180, 255, 0.03);
+            border: 1px solid rgba(0, 180, 255, 0.15);
+            padding: 40px 24px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .spec-card:hover {
+            background: rgba(0, 180, 255, 0.06);
+            border-color: var(--accent-primary);
+            transform: translateY(-6px);
+        }
+
+        .spec-icon-wrap {
+            font-size: 32px;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .spec-value {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--accent-primary);
+            line-height: 1.1;
+        }
+
+        .spec-card-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .spec-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .specs-section-title {
+                font-size: 40px;
+            }
+        }
+
+        /* ==========================================================================
+           🎬 FEATURED IMAGE SHOWCASE (Full-width Parallax)
+           ========================================================================== */
+        #jwst-featured-showcase {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .featured-parallax-img {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            will-change: transform;
+            filter: brightness(0.7);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.1) 100%);
+            z-index: 1;
+        }
+
+        .featured-content {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent-primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .featured-title {
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .featured-meta {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .featured-meta span {
+            margin-right: 20px;
+        }
+
+        .featured-info-card {
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            padding: 24px;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .featured-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .btn-featured-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-featured-link:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .featured-content {
+                bottom: 24px;
+                left: 24px;
+                right: 24px;
+            }
+            .featured-title {
+                font-size: 30px;
+            }
+            #jwst-featured-showcase {
+                height: auto;
+                min-height: 500px;
+            }
+            .featured-info-card {
+                max-width: 100%;
+            }
+        }
+
+        /* ==========================================================================
+           📊 WEBB'S FOUR SCIENCE THEMES
+           ========================================================================== */
+        #jwst-themes {
+            padding: 100px 0;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .themes-header {
+            margin-bottom: 60px;
+        }
+
+        .themes-title {
+            font-size: 48px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .themes-subtext {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .theme-card {
+            position: relative;
+            height: 480px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* Top colored accent bars */
+        .theme-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 3;
+            transition: var(--transition);
+        }
+
+        .theme-card.early-universe::before { background-color: #FCA311; }
+        .theme-card.galaxies::before { background-color: #00B4FF; }
+        .theme-card.star-lifecycle::before { background-color: #EC4899; }
+        .theme-card.other-worlds::before { background-color: #10B981; }
+
+        .theme-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: brightness(0.6) saturate(0.9);
+        }
+
+        .theme-card:hover .theme-bg-img {
+            transform: scale(1.08);
+            filter: brightness(0.75) saturate(1.1);
+        }
+
+        .theme-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+
+        .theme-card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .theme-card-title {
+            font-size: 28px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .theme-card-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .theme-card:hover .theme-card-desc {
+            opacity: 1;
+            color: #ffffff;
+        }
+
+        @media (max-width: 992px) {
+            .themes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .theme-card {
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================================================================
+           🔬 INSTRUMENTS & CAPABILITIES SECTION
+           ========================================================================== */
+        #jwst-instruments {
+            padding: 120px 0;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .instruments-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .instruments-section-title {
+            font-size: 56px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .instruments-section-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .instrument-block {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 100px;
+        }
+
+        .instrument-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .instrument-block.alt-layout {
+            flex-direction: row-reverse;
+        }
+
+        .instrument-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+        }
+
+        .instrument-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .instrument-block:hover .instrument-img {
+            transform: scale(1.05);
+        }
+
+        .instrument-text {
+            flex: 1;
+            max-width: 560px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .instrument-name-heading {
+            font-size: 40px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .instrument-detail-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .instrument-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            border-top: 1px solid rgba(0, 180, 255, 0.15);
+            padding-top: 24px;
+        }
+
+        .instrument-spec-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .instrument-spec-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .instrument-spec-value {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--accent-primary);
+        }
+
+        .btn-instrument-action {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: flex-start;
+        }
+
+        .btn-instrument-action:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 992px) {
+            .instrument-block, .instrument-block.alt-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .instrument-visual {
+                width: 100%;
+                height: 300px;
+            }
+            .instrument-text {
+                max-width: 100%;
+            }
+            .instrument-name-heading {
+                font-size: 32px;
+            }
+        }
+
+        /* ==========================================================================
+           📰 LATEST DISCOVERIES & NEWS FEED (Filterable)
+           ========================================================================== */
+        #jwst-discoveries {
+            padding: 100px 0;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .discoveries-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .discoveries-title {
+            font-size: 56px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* Sticky Filter Tabs */
+        .filter-tabs-wrapper {
+            position: sticky;
+            top: 55px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 180, 255, 0.1);
+            padding: 12px 0;
+            margin-bottom: 50px;
+        }
+
+        .filter-tabs-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-tab {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-secondary);
+            padding: 10px 24px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tab:hover {
+            border-color: rgba(255,255,255,0.5);
+            color: #ffffff;
+        }
+
+        .filter-tab.active {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: rgba(0, 180, 255, 0.05);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: rgba(0, 180, 255, 0.02);
+            border: 1px solid rgba(0, 180, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .news-card.hidden {
+            display: none !important;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            background: rgba(0, 180, 255, 0.05);
+        }
+
+        .news-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .news-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-img {
+            transform: scale(1.05);
+        }
+
+        .news-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            padding: 4px 10px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .news-card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex-grow: 1;
+        }
+
+        .news-card-title {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .news-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .news-card-footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .discoveries-title {
+                font-size: 40px;
+            }
+            .filter-tabs-wrapper {
+                top: 55px;
+            }
+        }
+
+        /* ==========================================================================
+           🎓 CALL-TO-ACTION: CITIZEN SCIENCE
+           ========================================================================== */
+        #jwst-citizen {
+            position: relative;
+            padding: 120px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        /* Background Star Canvas or Animation */
+        .citizen-canvas-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .citizen-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .citizen-title {
+            font-size: 52px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .citizen-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .btn-citizen-action {
+            background-color: var(--accent-primary);
+            color: #000000;
+            border: 1px solid var(--accent-primary);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 16px 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+        }
+
+        .btn-citizen-action:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 180, 255, 0.85);
+            box-shadow: 0 0 20px rgba(0,180,255,0.4) !important;
+        }
+
+        @media (max-width: 768px) {
+            .citizen-title {
+                font-size: 38px;
+            }
+            .citizen-desc {
+                font-size: 16px;
+            }
+        }
+
+        /* ==========================================================================
+           👥 INTERNATIONAL TEAM SECTION
+           ========================================================================== */
+        #jwst-team {
+            padding: 80px 0;
+            background-color: #000000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .team-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .team-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .team-stat-box {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: #ffffff;
+            border-left: 2px solid var(--accent-primary);
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        .team-stat-box span {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .team-logos-grid {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            height: 40px;
+            width: auto;
+            opacity: 0.8;
+            filter: brightness(0) invert(1);
+            transition: var(--transition);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+        }
+
+        /* Clean Vector Logos Fallback */
+        .partner-logo-vector {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .partner-logo-vector:hover {
+            opacity: 1;
+            color: var(--accent-primary);
+        }
+
+        .team-quote-block {
+            border-top: 1px solid rgba(0, 180, 255, 0.15);
+            padding-top: 40px;
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .team-top-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+            .team-logos-grid {
+                gap: 40px;
+            }
+        }
+
+        /* ==========================================================================
+           🔗 SOCIAL & FOLLOW SECTION
+           ========================================================================== */
+        #jwst-social {
+            padding: 80px 0;
+            background-color: #000000;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .social-title {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .social-circle-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-circle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            color: #ffffff;
+            font-size: 22px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-circle-btn:hover {
+            background-color: var(--accent-primary);
+            color: #000000;
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        /* ==========================================================================
+           🦶 FOOTER (Minimal Flareum-style)
+           ========================================================================== */
+        #jwst-footer {
+            background-color: #000000;
+            padding: 80px 40px;
+            border-top: 1px solid rgba(0, 180, 255, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 250px;
+        }
+
+        .footer-version {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.08em;
+        }
+
+        .footer-heading {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-nav-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-nav-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(0, 180, 255, 0.1);
+            margin: 60px 0 30px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom-left {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-bottom-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom-right {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .footer-highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            #jwst-footer {
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+<body class="scientific-grid">
+
+    <!-- Sticky Navigation (Flareum-style) -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-indicator"></div>
+            <span class="nav-brand-text">ORION</span>
+        </a>
+        
+        <!-- Center Links (Hidden on mobile) -->
+        <ul class="nav-links">
+            <li><a href="index.html#hero" class="nav-link">Telemetry</a></li>
+            <li><a href="index.html#deck" class="nav-link">Control</a></li>
+            <li><a href="index.html#encyclopedia" class="nav-link">Planets</a></li>
+            <li><a href="index.html#timeline-sec" class="nav-link active">Space Flight</a></li>
+            <li><a href="index.html#quiz-sec" class="nav-link">Cosmos</a></li>
+        </ul>
+
+        <!-- Right Button -->
+        <a href="index.html#deck" class="btn-launch-mission">Launch Mission</a>
+        
+        <button class="mobile-toggle" aria-label="Toggle Navigation menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="drawer-overlay"></div>
+    <div class="mobile-drawer">
+        <button class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#hero" class="mobile-nav-link">Telemetry</a></li>
+            <li><a href="index.html#deck" class="mobile-nav-link">Control Deck</a></li>
+            <li><a href="index.html#encyclopedia" class="mobile-nav-link">Planets Registry</a></li>
+            <li><a href="index.html#timeline-sec" class="mobile-nav-link">Space Flight</a></li>
+            <li><a href="index.html#quiz-sec" class="mobile-nav-link">Cosmic Trivia</a></li>
+        </ul>
+    </div>
+
+    <!-- Full-Bleed Hero Section -->
+    <section id="jwst-hero">
+        <div class="hero-image-fallback" id="hero-fallback-bg"></div>
+        <canvas class="hero-canvas-bg" id="hero-star-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        
+        <div class="main-container hero-content">
+            <div class="hero-grid-layout">
+                <div class="hero-left-col">
+                    <div class="eyebrow-label" id="hero-eyebrow">> SPACE FLIGHT · ACTIVE OBSERVATORY</div>
+                    
+                    <h1 class="hero-headline">
+                        <span class="word-wrapper">
+                            <span class="stagger-word" style="transition-delay: 0.1s;">James Webb</span>
+                        </span>
+                        <span class="word-wrapper">
+                            <span class="stagger-word" style="transition-delay: 0.3s;">Space Telescope</span>
+                        </span>
+                    </h1>
+                    
+                    <p class="hero-subheading" id="hero-subheading">
+                        Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide.
+                    </p>
+                    
+                    <div class="hero-actions" id="hero-actions">
+                        <button class="btn-cta btn-cta-primary" onclick="document.getElementById('jwst-overview').scrollIntoView({behavior: 'smooth'})">Explore Mission &rarr;</button>
+                        <a href="index.html#deck" class="btn-cta btn-cta-secondary">View Live Data</a>
+                    </div>
+                </div>
+                
+                <div class="hero-right-col" id="hero-image-col">
+                    <div class="hero-image-frame">
+                        <div class="corner-accents">
+                            <div class="corner corner-tl"></div>
+                            <div class="corner corner-br"></div>
+                        </div>
+                        <img class="hero-jwst-img" src="assets/jwst_background.jpg" alt="James Webb Space Telescope">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator" onclick="document.getElementById('jwst-overview').scrollIntoView({behavior: 'smooth'})">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+    </section>
+
+    <!-- Mission Overview Section -->
+    <section id="jwst-overview">
+        <div class="overview-honeycomb"></div>
+        
+        <div class="main-container overview-grid reveal-on-scroll">
+            <div class="overview-left">
+                <h2 class="section-heading">The Premier Observatory</h2>
+                <div class="overview-body">
+                    <p><span class="accent-cyan">Webb</span> is the largest, most powerful, and complex space telescope ever built and launched into space. It is designed to alter our understanding of the universe by observing cosmic history from our own solar system to the most distant observable galaxies in the early universe.</p>
+                    <p>Operating from the second Lagrange point (L2), approximately 1.5 million kilometers from Earth, Webb keeps its instruments cooled to near absolute zero. This extreme environment is vital for its highly sensitive infrared sensors to detect the faint thermal signatures of early cosmic structures.</p>
+                    <p>Through international collaboration between NASA, ESA, and CSA, the telescope serves as a premier research facility for thousands of astronomers globally, pushing the boundaries of what is possible in modern astrophysics and space exploration.</p>
+                </div>
+            </div>
+            
+            <div class="overview-right">
+                <div class="stat-card">
+                    <div class="stat-number">Dec 25, 2021</div>
+                    <div class="stat-label">Launch Date</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.5M km</div>
+                    <div class="stat-label">Orbit Distance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6.6 meters</div>
+                    <div class="stat-label">Mirror Diameter</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40 K</div>
+                    <div class="stat-label">Operating Temp</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive: JWST Mirror Showcase -->
+    <section id="jwst-mirror">
+        <div class="mirror-parallax-bg" id="mirror-parallax" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1600');"></div>
+        
+        <div class="main-container mirror-content-overlay reveal-on-scroll">
+            <div class="mirror-border-wrap">
+                <!-- Border accents -->
+                <div class="mirror-corner-topright"></div>
+                <div class="mirror-corner-bottomleft"></div>
+                
+                <div class="mirror-showcase-grid">
+                    <div class="mirror-text-block">
+                        <h2 class="mirror-title">6.6 Meters of Unfolding Precision</h2>
+                        <p class="mirror-desc">
+                            The primary mirror is composed of 18 hexagonal segments made of ultra-lightweight beryllium. Each segment is coated with a microscopically thin layer of pure gold, optimized to reflect infrared light from the edge of the observable universe.
+                        </p>
+                        <p class="mirror-desc">
+                            Using the interactive telemetry model on the right, select individual mirror panels to inspect active structural alignments, sensor readouts, and surface compositions.
+                        </p>
+                    </div>
+                    
+                    <div class="mirror-visual-panel">
+                        <div class="mirror-svg-wrapper">
+                            <svg class="mirror-svg" viewBox="0 0 300 300">
+                                <!-- Honeycomb 18 Segments -->
+                                <!-- Inner Ring (6 hexagons) -->
+                                <polygon class="mirror-seg active-seg" data-name="A1 - Segment Beryllium Core" data-info="Constructed from lightweight beryllium, designed to maintain its optical shape at operating temperatures below -233°C." points="150,98 135.5,72.9 164.5,72.9 179,98 164.5,123.1 135.5,123.1" />
+                                <polygon class="mirror-seg" data-name="A2 - Gold Reflective Surface" data-info="Vapor-deposited 24k gold layer, exactly 100 nanometers thick, optimized to reflect 98% of faint infrared light." points="150,202 135.5,176.9 164.5,176.9 179,202 164.5,227.1 135.5,227.1" />
+                                <polygon class="mirror-seg" data-name="A3 - Segment Actuator Matrix" data-info="Backside features 7 micro-motors capable of shifting the mirror segment in 10-nanometer alignments." points="105,124 90.5,98.9 119.5,98.9 134,124 119.5,149.1 90.5,149.1" />
+                                <polygon class="mirror-seg" data-name="A4 - Heat Retention Controls" data-info="Heaters and insulation minimize thermal leakage to mirror segments, preserving focal optics." points="105,176 90.5,150.9 119.5,150.9 134,176 119.5,201.1 90.5,201.1" />
+                                <polygon class="mirror-seg" data-name="A5 - Optical Wavefront Sensor" data-info="Monitors wavefront alignment in space, feeding alignment instructions directly to mirror actuators." points="195,124 180.5,98.9 209.5,98.9 224,124 209.5,149.1 180.5,149.1" />
+                                <polygon class="mirror-seg" data-name="A6 - Alignment Actuators" data-info="Micro-motor piston assembly designed to flex the beryllium segments slightly to change curvature." points="195,176 180.5,150.9 209.5,150.9 224,176 209.5,201.1 180.5,201.1" />
+                                
+                                <!-- Outer Ring (12 hexagons) -->
+                                <polygon class="mirror-seg" data-name="B1 - Outer Mirror Structural Ring" data-info="Segments located on the outer perimeter collect wide-angle rays, feeding them into the focal line-of-sight." points="150,46 135.5,20.9 164.5,20.9 179,46 164.5,71.1 135.5,71.1" />
+                                <polygon class="mirror-seg" data-name="B2 - Beryllium Segment Shell" data-info="Beryllium is selected due to its lightweight density, ensuring the mirror remains light enough for rocket payload limits." points="150,254 135.5,228.9 164.5,228.9 179,254 164.5,279.1 135.5,279.1" />
+                                <polygon class="mirror-seg" data-name="B3 - Segment Backplane Link" data-info="Secures each segment to the carbon-fiber composite support structure that folded inside Ariane 5." points="105,72 90.5,46.9 119.5,46.9 134,72 119.5,97.1 90.5,97.1" />
+                                <polygon class="mirror-seg" data-name="B4 - Outer Expansion Shields" data-info="Ensures micro-meteoroids impacting the edges don't structurally crack the active mirror elements." points="105,228 90.5,202.9 119.5,202.9 134,228 119.5,253.1 90.5,253.1" />
+                                <polygon class="mirror-seg" data-name="B5 - Telemetry Array Link" data-info="Feeds localized segment temperature sensor logs to the main Integrated Science Instrument Module (ISIM)." points="195,72 180.5,46.9 209.5,46.9 224,72 209.5,97.1 180.5,97.1" />
+                                <polygon class="mirror-seg" data-name="B6 - Dynamic Deformable Control" data-info="Monitors minor gravitational warp deviations to ensure high-contrast imaging remains stable." points="195,228 180.5,202.9 209.5,202.9 224,228 209.5,253.1 180.5,253.1" />
+                                
+                                <!-- Outer Columns Left/Right (6 hexagons) -->
+                                <polygon class="mirror-seg" data-name="C1 - Structural Wing Hinge" data-info="Hinges allowed the left wing of three segments to fold backward to fit inside the launcher fairing." points="60,150 45.5,124.9 74.5,124.9 89,150 74.5,175.1 45.5,175.1" />
+                                <polygon class="mirror-seg" data-name="C2 - Left Wing Beryllium Panel" data-info="Part of the folding side wings. Deployed perfectly in space on January 7, 2022, 13 days after launch." points="60,98 45.5,72.9 74.5,72.9 89,98 74.5,123.1 45.5,123.1" />
+                                <polygon class="mirror-seg" data-name="C3 - Left Wing Bottom segment" data-info="Beryllium segment coated with gold (about 48.25 grams spread over 18 panels)." points="60,202 45.5,176.9 74.5,176.9 89,202 74.5,227.1 45.5,227.1" />
+                                <polygon class="mirror-seg" data-name="C4 - Right Wing Structural Hinge" data-info="Right mirror wing assembly deployed successfully on January 8, 2022, completing Webb's main mirrors deployment." points="240,150 225.5,124.9 254.5,124.9 269,150 254.5,175.1 225.5,175.1" />
+                                <polygon class="mirror-seg" data-name="C5 - Right Wing Top Segment" data-info="Outer mirror element collects wide infrared light, funneling it directly onto the central secondary reflector." points="240,98 225.5,72.9 254.5,72.9 269,98 254.5,123.1 225.5,123.1" />
+                                <polygon class="mirror-seg" data-name="C6 - Right Wing Bottom Segment" data-info="Features micro-heaters that keep mirror segments free from cosmic water ice condensation." points="240,202 225.5,176.9 254.5,176.9 269,202 254.5,227.1 225.5,227.1" />
+                                
+                                <!-- Center Hole (Empty) -->
+                                <polygon class="center-hole" points="150,150 135.5,124.9 164.5,124.9 179,150 164.5,175.1 135.5,175.1" />
+                            </svg>
+                        </div>
+                        
+                        <!-- Telemetry Display panel -->
+                        <div class="mirror-panel-readout">
+                            <div class="readout-title" id="mirror-readout-title">
+                                <i class="fa-solid fa-microchip"></i> A1 - Segment Beryllium Core
+                            </div>
+                            <div class="readout-txt" id="mirror-readout-text">
+                                Constructed from lightweight beryllium, designed to maintain its optical shape at operating temperatures below -233°C.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Facts Grid (Specifications) -->
+    <section id="jwst-specs">
+        <div class="main-container reveal-on-scroll">
+            <div class="specs-header">
+                <h2 class="specs-section-title">Specifications</h2>
+                <p class="specs-section-desc">Key physical metrics and engineering dimensions of the spacecraft observatory.</p>
+            </div>
+            
+            <div class="specs-grid">
+                <!-- Folding Design -->
+                <div class="spec-card">
+                    <div class="spec-icon-wrap">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <div class="spec-value">5</div>
+                    <div class="spec-card-label">Sunshield Layers</div>
+                    <p class="spec-card-desc">Folded design of Kapton sheets protecting science instruments from heat.</p>
+                </div>
+                
+                <!-- Distance to L2 -->
+                <div class="spec-card">
+                    <div class="spec-icon-wrap">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="spec-value">1.5M km</div>
+                    <div class="spec-card-label">Sun-Earth L2</div>
+                    <p class="spec-card-desc">Gravitational stability orbit position maintaining cold operating shade.</p>
+                </div>
+                
+                <!-- Mirror Segments -->
+                <div class="spec-card">
+                    <div class="spec-icon-wrap">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <div class="spec-value">18</div>
+                    <div class="spec-card-label">Gold-Coated Beryllium</div>
+                    <p class="spec-card-desc">Hexagonal segments operating as a single high-precision aperture.</p>
+                </div>
+                
+                <!-- Sensitivity -->
+                <div class="spec-card">
+                    <div class="spec-icon-wrap">
+                        <i class="fa-solid fa-history"></i>
+                    </div>
+                    <div class="spec-value">13.5B yr</div>
+                    <div class="spec-card-label">Look-Back Time</div>
+                    <p class="spec-card-desc">Observational range tracking initial galaxy formation after the Big Bang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Image Showcase -->
+    <section id="jwst-featured-showcase">
+        <div class="featured-parallax-img" id="featured-parallax" style="background-image: url('https://images.unsplash.com/photo-1658237583696-fb2d8d85f8cf?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="featured-overlay"></div>
+        
+        <div class="featured-content">
+            <span class="featured-eyebrow">> Featured Observation</span>
+            <h2 class="featured-title">Abell 2744 Black Hole Discovery</h2>
+            
+            <div class="featured-meta">
+                <span><strong>Date:</strong> November 9, 2023</span>
+                <span><strong>Instrument:</strong> NIRCam & MIRI</span>
+                <span><strong>Collaboration:</strong> STScI / NASA</span>
+            </div>
+            
+            <div class="featured-info-card">
+                <p class="featured-desc">
+                    By leveraging gravitational lensing from giant galaxy cluster Abell 2744, Webb successfully identified UHZ1, a supermassive black hole located in a galaxy 13.2 billion light-years away, providing key data on early galactic structures.
+                </p>
+                <a href="https://science.nasa.gov/mission/webb/discoveries/" target="_blank" rel="noopener" class="btn-featured-link">
+                    Explore Discoveries Database <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Webb's Four Science Themes -->
+    <section id="jwst-themes">
+        <div class="main-container reveal-on-scroll">
+            <div class="themes-header">
+                <h2 class="themes-title">Primary Science Missions</h2>
+                <p class="themes-subtext">Webb explores four major areas of the cosmos</p>
+            </div>
+            
+            <div class="themes-grid">
+                <!-- Theme 1 -->
+                <div class="theme-card early-universe">
+                    <div class="theme-bg-img" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=800');"></div>
+                    <div class="theme-card-overlay"></div>
+                    <div class="theme-card-content">
+                        <h3 class="theme-card-title">Early Universe</h3>
+                        <p class="theme-card-desc">Observing the light emitted by the very first stars and galaxies formed after the Big Bang.</p>
+                    </div>
+                </div>
+                
+                <!-- Theme 2 -->
+                <div class="theme-card galaxies">
+                    <div class="theme-bg-img" style="background-image: url('https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=800');"></div>
+                    <div class="theme-card-overlay"></div>
+                    <div class="theme-card-content">
+                        <h3 class="theme-card-title">Galaxies</h3>
+                        <p class="theme-card-desc">Comparing early star groups to today's grand spirals, tracing evolutionary dynamics.</p>
+                    </div>
+                </div>
+                
+                <!-- Theme 3 -->
+                <div class="theme-card star-lifecycle">
+                    <div class="theme-bg-img" style="background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=800');"></div>
+                    <div class="theme-card-overlay"></div>
+                    <div class="theme-card-content">
+                        <h3 class="theme-card-title">Star Lifecycle</h3>
+                        <p class="theme-card-desc">Penetrating dusty stellar clouds to observe young stars and planetary systems forming.</p>
+                    </div>
+                </div>
+                
+                <!-- Theme 4 -->
+                <div class="theme-card other-worlds">
+                    <div class="theme-bg-img" style="background-image: url('https://images.unsplash.com/photo-1504333631580-c817dbda4c0c?q=80&w=800');"></div>
+                    <div class="theme-card-overlay"></div>
+                    <div class="theme-card-content">
+                        <h3 class="theme-card-title">Other Worlds</h3>
+                        <p class="theme-card-desc">Investigating chemical profiles of exoplanet atmospheres to identify life markers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instruments & Capabilities Section -->
+    <section id="jwst-instruments">
+        <div class="main-container reveal-on-scroll">
+            <div class="instruments-header">
+                <h2 class="instruments-section-title">Instruments & Capabilities</h2>
+                <p class="instruments-section-desc">Four highly sensitive scientific components observing the infrared cosmos.</p>
+            </div>
+            
+            <!-- Block 1: NIRCam -->
+            <div class="instrument-block">
+                <div class="instrument-visual">
+                    <img class="instrument-img parallax-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800" alt="NIRCam Technical Background" loading="lazy">
+                </div>
+                <div class="instrument-text">
+                    <h3 class="instrument-name-heading">NIRCam — Near-Infrared Camera</h3>
+                    <p class="instrument-detail-desc">
+                        NIRCam is Webb's primary imager. It detects light from the earliest stars and galaxies, maps nearby galaxies, and studies exoplanets using coronagraphs that block stellar glare.
+                    </p>
+                    <div class="instrument-specs-grid">
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Wavelength Range</span>
+                            <span class="instrument-spec-value">0.6 to 5 Microns</span>
+                        </div>
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Operating Temperature</span>
+                            <span class="instrument-spec-value">37 Kelvin (-236°C)</span>
+                        </div>
+                    </div>
+                    <a href="https://webb.nasa.gov/content/observatory/instruments/nircam.html" target="_blank" rel="noopener" class="btn-instrument-action">
+                        Learn More about NIRCam &rarr;
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Block 2: NIRSpec -->
+            <div class="instrument-block alt-layout">
+                <div class="instrument-visual">
+                    <img class="instrument-img parallax-img" src="https://images.unsplash.com/photo-1610296669228-602fa827fc1f?q=80&w=800" alt="NIRSpec Spectrographic Concept" loading="lazy">
+                </div>
+                <div class="instrument-text">
+                    <h3 class="instrument-name-heading">NIRSpec — Near-Infrared Spectrograph</h3>
+                    <p class="instrument-detail-desc">
+                        NIRSpec splits light into spectra, revealing chemical compositions, temperatures, and speeds. Its revolutionary microshutter array allows observing up to 100 objects simultaneously.
+                    </p>
+                    <div class="instrument-specs-grid">
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Microshutters</span>
+                            <span class="instrument-spec-value">250,000 shutters</span>
+                        </div>
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Wavelength Range</span>
+                            <span class="instrument-spec-value">0.6 to 5.3 Microns</span>
+                        </div>
+                    </div>
+                    <a href="https://webb.nasa.gov/content/observatory/instruments/nirspec.html" target="_blank" rel="noopener" class="btn-instrument-action">
+                        Learn More about NIRSpec &rarr;
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Block 3: MIRI -->
+            <div class="instrument-block">
+                <div class="instrument-visual">
+                    <img class="instrument-img parallax-img" src="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?q=80&w=800" alt="MIRI Cryogenic Concept" loading="lazy">
+                </div>
+                <div class="instrument-text">
+                    <h3 class="instrument-name-heading">MIRI — Mid-Infrared Instrument</h3>
+                    <p class="instrument-detail-desc">
+                        MIRI observes long-wave infrared light. It penetrates dense dust fields, identifying young stars, cold interstellar matter, and distant red-shifted galaxies.
+                    </p>
+                    <div class="instrument-specs-grid">
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Wavelength Range</span>
+                            <span class="instrument-spec-value">4.9 to 28.8 Microns</span>
+                        </div>
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Cryocooler Temperature</span>
+                            <span class="instrument-spec-value">7 Kelvin (-266°C)</span>
+                        </div>
+                    </div>
+                    <a href="https://webb.nasa.gov/content/observatory/instruments/miri.html" target="_blank" rel="noopener" class="btn-instrument-action">
+                        Learn More about MIRI &rarr;
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Block 4: FGS/NIRISS -->
+            <div class="instrument-block alt-layout">
+                <div class="instrument-visual">
+                    <img class="instrument-img parallax-img" src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=800" alt="FGS/NIRISS Guidance Concept" loading="lazy">
+                </div>
+                <div class="instrument-text">
+                    <h3 class="instrument-name-heading">FGS/NIRISS — Guidance & Spectrograph</h3>
+                    <p class="instrument-detail-desc">
+                        FGS provides high-precision pointing data to keep the telescope locked on targets. NIRISS operates alongside to support exoplanet transit observations and deep-space imaging.
+                    </p>
+                    <div class="instrument-specs-grid">
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Pointing Accuracy</span>
+                            <span class="instrument-spec-value">0.008 arcseconds</span>
+                        </div>
+                        <div class="instrument-spec-cell">
+                            <span class="instrument-spec-label">Wavelength Range</span>
+                            <span class="instrument-spec-value">0.6 to 5.0 Microns</span>
+                        </div>
+                    </div>
+                    <a href="https://webb.nasa.gov/content/observatory/instruments/fgs.html" target="_blank" rel="noopener" class="btn-instrument-action">
+                        Learn More about FGS/NIRISS &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Discoveries & News Feed (Filterable) -->
+    <section id="jwst-discoveries">
+        <div class="main-container reveal-on-scroll">
+            <div class="discoveries-header">
+                <h2 class="discoveries-title">Latest Webb Discoveries</h2>
+            </div>
+            
+            <!-- Sticky Filter Tabs -->
+            <div class="filter-tabs-wrapper">
+                <div class="filter-tabs-container">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="science">Science Releases</button>
+                    <button class="filter-tab" data-filter="image">Images</button>
+                    <button class="filter-tab" data-filter="blog">Blog Posts</button>
+                    <button class="filter-tab" data-filter="video">Videos</button>
+                </div>
+            </div>
+            
+            <div class="news-grid">
+                <!-- Card 1 (Science Release) -->
+                <div class="news-card" data-category="science">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=600" alt="Black hole illustration" loading="lazy">
+                        <span class="news-badge">Science</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">Black Hole Formed Before Its Galaxy</h3>
+                        <p class="news-card-desc">Webb's discoveries reveal UHZ1 black hole is more massive than previously believed possible, changing galaxy models.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>May 15, 2026</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Card 2 (Image) -->
+                <div class="news-card" data-category="image">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1658237583696-fb2d8d85f8cf?q=80&w=600" alt="Galaxy Cluster observation" loading="lazy">
+                        <span class="news-badge">Image</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">Little Red Dot Abell2744-QSO1</h3>
+                        <p class="news-card-desc">A deep near-infrared observation shows high-redshift dusty galaxies forming stars rapidly inside cosmic structures.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Apr 22, 2026</span>
+                        <span>2 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Card 3 (Blog) -->
+                <div class="news-card" data-category="blog">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600" alt="Infographic representation" loading="lazy">
+                        <span class="news-badge">Blog</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">How Webb Rules Out Asteroid Lunar Impact</h3>
+                        <p class="news-card-desc">Telescope telemetry checks path anomalies to rule out major orbits colliding with inner lunar bodies.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Mar 10, 2026</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Card 4 (Video) -->
+                <div class="news-card" data-category="video">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=600" alt="Atmospheric capture spectrum graphic" loading="lazy">
+                        <span class="news-badge">Video</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">Webb Observes Exoplanet Atmospheres</h3>
+                        <p class="news-card-desc">Video breakdown of transit data mapping methane, carbon dioxide, and water vapor signatures in exoplanets.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Feb 28, 2026</span>
+                        <span>12 min watch</span>
+                    </div>
+                </div>
+                
+                <!-- Card 5 (Science Release) -->
+                <div class="news-card" data-category="science">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1504333631580-c817dbda4c0c?q=80&w=600" alt="Gas giant planet" loading="lazy">
+                        <span class="news-badge">Science</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">Webb Redefines Planets vs. Stars</h3>
+                        <p class="news-card-desc">Discovery of massive free-floating gas objects challenges standard boundary masses defining planetary labels.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Jan 15, 2026</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Card 6 (Image) -->
+                <div class="news-card" data-category="image">
+                    <div class="news-img-wrap">
+                        <img class="news-img" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=600" alt="Deep space lens cluster" loading="lazy">
+                        <span class="news-badge">Image</span>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">Galaxy Cluster & Gravitational Lensing</h3>
+                        <p class="news-card-desc">Magnified background galaxies appear as curved arcs around the core cluster, capturing galaxies from the cosmic dawn.</p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Dec 08, 2025</span>
+                        <span>3 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action: Citizen Science -->
+    <section id="jwst-citizen">
+        <canvas class="citizen-canvas-bg" id="citizen-star-canvas"></canvas>
+        <div class="main-container citizen-content reveal-on-scroll">
+            <h2 class="citizen-title">Join the Discovery</h2>
+            <p class="citizen-desc">Help NASA classify Webb galaxies through Galaxy Zoo citizen science. No experience required.</p>
+            <a href="https://www.galaxyzoo.org/" target="_blank" rel="noopener" class="btn-citizen-action">Participate Now &rarr;</a>
+        </div>
+    </section>
+
+    <!-- International Team Section -->
+    <section id="jwst-team">
+        <div class="main-container team-container reveal-on-scroll">
+            <div class="team-top-row">
+                <div class="team-stat-box">
+                    <span>14+</span> Countries &middot; <span>29</span> U.S. States &middot; <span>1000s</span> of Specialists
+                </div>
+                
+                <div class="team-logos-grid">
+                    <span class="partner-logo-vector">NASA</span>
+                    <span class="partner-logo-vector">ESA</span>
+                    <span class="partner-logo-vector">CSA</span>
+                </div>
+            </div>
+            
+            <blockquote class="team-quote-block">
+                "Webb represents a landmark international engineering achievement, built to answer outstanding questions about the universe and make breakthrough discoveries in all fields of astronomy."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Social & Follow Section -->
+    <section id="jwst-social">
+        <div class="main-container reveal-on-scroll">
+            <h2 class="social-title">Stay Connected</h2>
+            
+            <div class="social-circle-grid">
+                <a href="https://www.facebook.com/nasawebb" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/NASAWebb" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Twitter X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/nasawebb" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/nasawebb" target="_blank" rel="noopener" class="social-circle-btn" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="index.html#footer" class="social-circle-btn" aria-label="Newsletter">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="jwst-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <span class="footer-brand">Orion Cosmos</span>
+                <p class="footer-tagline">An interactive deep-space virtual control bridge mapping planetary orbits and flight path telemetry.</p>
+                <span class="footer-version">SYS.VER: 4.8.0.COSMOS</span>
+            </div>
+            
+            <div class="footer-column">
+                <span class="footer-heading">Navigation</span>
+                <ul class="footer-links-list">
+                    <li><a href="index.html#hero" class="footer-nav-link">Telemetry Bridge</a></li>
+                    <li><a href="index.html#deck" class="footer-nav-link">Control Deck</a></li>
+                    <li><a href="index.html#encyclopedia" class="footer-nav-link">Planets Database</a></li>
+                    <li><a href="index.html#timeline-sec" class="footer-nav-link">Space Flight</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <span class="footer-heading">Social</span>
+                <ul class="footer-links-list">
+                    <li><a href="https://github.com/Jayurana" target="_blank" rel="noopener" class="footer-nav-link">GitHub Page</a></li>
+                    <li><a href="https://www.linkedin.com/in/jagdish-girase-986034410" target="_blank" rel="noopener" class="footer-nav-link">LinkedIn Profile</a></li>
+                    <li><a href="mailto:girasejagdish2@gmail.com" class="footer-nav-link">Email Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <span class="footer-heading">Legal</span>
+                <ul class="footer-links-list">
+                    <li><a href="index.html#footer" class="footer-nav-link">Privacy Policy</a></li>
+                    <li><a href="index.html#footer" class="footer-nav-link">MIT License</a></li>
+                    <li><a href="index.html#footer" class="footer-nav-link">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="footer-divider">
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <a href="index.html" class="footer-bottom-link">Sitemap</a>
+                <a href="index.html" class="footer-bottom-link">Accessibility</a>
+                <a href="https://github.com/Jayurana/solar-system-3d" target="_blank" rel="noopener" class="footer-bottom-link">Repository</a>
+            </div>
+            <div class="footer-bottom-right">
+                <span>Page Last Redesigned: <strong class="footer-highlight">May 28, 2026</strong></span>
+                <span> &middot; </span>
+                <span>Lead Developer: <strong class="footer-highlight">Jagdish Girase</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript & Interactive Logic -->
+    <script>
+        // ==========================================================================
+        // LOCAL ASSET IMAGE FALLBACKS
+        // ==========================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            // Hero background image setup (supporting fallback path)
+            const heroBg = document.getElementById('hero-fallback-bg');
+            if (heroBg) {
+                const img = new Image();
+                img.src = 'assets/jwst_artist_concept_0.webp';
+                img.onload = () => {
+                    heroBg.style.backgroundImage = "url('assets/jwst_artist_concept_0.webp')";
+                };
+                img.onerror = () => {
+                    heroBg.style.backgroundImage = "url('assets/jwst_background.jpg')";
+                };
+            }
+
+            // Animate Hero text items on load
+            setTimeout(() => {
+                const eyebrow = document.getElementById('hero-eyebrow');
+                const staggerWords = document.querySelectorAll('.stagger-word');
+                const subheading = document.getElementById('hero-subheading');
+                const actions = document.getElementById('hero-actions');
+                const imageCol = document.getElementById('hero-image-col');
+                
+                if (eyebrow) {
+                    eyebrow.style.opacity = '1';
+                    eyebrow.style.transform = 'translateY(0)';
+                }
+                
+                staggerWords.forEach(word => {
+                    word.style.opacity = '1';
+                    word.style.transform = 'translateY(0)';
+                });
+                
+                if (subheading) {
+                    subheading.style.opacity = '1';
+                    subheading.style.transform = 'translateY(0)';
+                }
+                if (actions) {
+                    actions.style.opacity = '1';
+                    actions.style.transform = 'translateY(0)';
+                }
+                if (imageCol) {
+                    imageCol.style.opacity = '1';
+                    imageCol.style.transform = 'translateY(0)';
+                }
+            }, 100);
+        });
+
+        // ==========================================================================
+        // STARFIELD BACKGROUND CANVASES (Scientific visual depth)
+        // ==========================================================================
+        function initStarCanvas(canvasId, particleCount, speedMultiplier) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = canvas.offsetWidth;
+            let height = canvas.height = canvas.offsetHeight;
+            
+            window.addEventListener('resize', () => {
+                if (canvas.offsetWidth && canvas.offsetHeight) {
+                    width = canvas.width = canvas.offsetWidth;
+                    height = canvas.height = canvas.offsetHeight;
+                }
+            });
+            
+            const stars = [];
+            for (let i = 0; i < particleCount; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: Math.random() * 1.5 + 0.2,
+                    speed: (Math.random() * 0.05 + 0.01) * speedMultiplier,
+                    twinkle: Math.random() * Math.PI
+                });
+            }
+            
+            function animate() {
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(0, 0, width, height);
+                
+                // Drawing thin scientific alignment grids
+                ctx.strokeStyle = 'rgba(0, 180, 255, 0.015)';
+                ctx.lineWidth = 0.5;
+                const gridSpacing = 80;
+                for (let x = 0; x < width; x += gridSpacing) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, height);
+                    ctx.stroke();
+                }
+                for (let y = 0; y < height; y += gridSpacing) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(width, y);
+                    ctx.stroke();
+                }
+                
+                // Twinkling stars
+                for (let i = 0; i < stars.length; i++) {
+                    const star = stars[i];
+                    star.y -= star.speed;
+                    if (star.y < 0) {
+                        star.y = height;
+                        star.x = Math.random() * width;
+                    }
+                    
+                    star.twinkle += 0.02;
+                    const opacity = Math.abs(Math.sin(star.twinkle)) * 0.7 + 0.3;
+                    
+                    ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        initStarCanvas('hero-star-canvas', 120, 1.5);
+        initStarCanvas('citizen-star-canvas', 60, 0.8);
+
+        // ==========================================================================
+        // PARALLAX SCROLLING WITH REQUESTANIMATIONFRAME
+        // ==========================================================================
+        let scrollOffset = 0;
+        window.addEventListener('scroll', () => {
+            scrollOffset = window.pageYOffset;
+        });
+
+        function performParallax() {
+            // Hero section background shift
+            const heroBg = document.getElementById('hero-fallback-bg');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrollOffset * 0.4}px)`;
+            }
+            
+            // Mirror background shift
+            const mirrorSection = document.getElementById('jwst-mirror');
+            if (mirrorSection) {
+                const mirrorBg = document.getElementById('mirror-parallax');
+                const offsetTop = mirrorSection.offsetTop;
+                const viewHeight = window.innerHeight;
+                if (scrollOffset + viewHeight > offsetTop && scrollOffset < offsetTop + mirrorSection.offsetHeight) {
+                    const relativeOffset = scrollOffset - offsetTop;
+                    mirrorBg.style.transform = `translateY(${relativeOffset * 0.3}px)`;
+                }
+            }
+
+            // Featured Image shift
+            const featuredSection = document.getElementById('jwst-featured-showcase');
+            if (featuredSection) {
+                const featuredBg = document.getElementById('featured-parallax');
+                const offsetTop = featuredSection.offsetTop;
+                const viewHeight = window.innerHeight;
+                if (scrollOffset + viewHeight > offsetTop && scrollOffset < offsetTop + featuredSection.offsetHeight) {
+                    const relativeOffset = scrollOffset - offsetTop;
+                    featuredBg.style.transform = `translateY(${relativeOffset * 0.2}px)`;
+                }
+            }
+
+            // Alternating instrument images shift
+            const instrumentImages = document.querySelectorAll('.parallax-img');
+            instrumentImages.forEach(img => {
+                const rect = img.parentElement.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const shift = (window.innerHeight - rect.top) * 0.12;
+                    img.style.transform = `translateY(${shift - 30}px) scale(1.06)`;
+                }
+            });
+
+            requestAnimationFrame(performParallax);
+        }
+        
+        requestAnimationFrame(performParallax);
+
+        // ==========================================================================
+        // STAGGERED FADE-IN VIEWPORT INTERSECTION OBSERVER
+        // ==========================================================================
+        const revealOptions = {
+            root: null,
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ==========================================================================
+        // INTERACTIVE SVG MIRROR SEGMENTS
+        // ==========================================================================
+        const mirrorSegments = document.querySelectorAll('.mirror-seg');
+        const readoutTitle = document.getElementById('mirror-readout-title');
+        const readoutText = document.getElementById('mirror-readout-text');
+
+        mirrorSegments.forEach(seg => {
+            seg.addEventListener('click', () => {
+                // Remove active segment from all
+                mirrorSegments.forEach(s => s.classList.remove('active-seg'));
+                
+                // Set active segment
+                seg.classList.add('active-seg');
+                
+                // Update readout
+                const name = seg.getAttribute('data-name');
+                const info = seg.getAttribute('data-info');
+                
+                if (readoutTitle && readoutText) {
+                    readoutTitle.innerHTML = `<i class="fa-solid fa-microchip"></i> ${name}`;
+                    readoutText.textContent = info;
+                }
+            });
+        });
+
+        // ==========================================================================
+        // FILTERABLE NEWS CARD GRID
+        // ==========================================================================
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const newsCards = document.querySelectorAll('.news-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Toggle active tab class
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-filter');
+                
+                newsCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // ==========================================================================
+        // MOBILE NAVIGATION DRAWER
+        // ==========================================================================
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileDrawer = document.querySelector('.mobile-drawer');
+        const drawerOverlay = document.querySelector('.drawer-overlay');
+        const drawerClose = document.querySelector('.mobile-drawer-close');
+        const drawerLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleDrawer(open) {
+            if (open) {
+                mobileDrawer.classList.add('active');
+                drawerOverlay.classList.add('active');
+            } else {
+                mobileDrawer.classList.remove('active');
+                drawerOverlay.classList.remove('active');
+            }
+        }
+
+        if (mobileToggle) mobileToggle.addEventListener('click', () => toggleDrawer(true));
+        if (drawerClose) drawerClose.addEventListener('click', () => toggleDrawer(false));
+        if (drawerOverlay) drawerOverlay.addEventListener('click', () => toggleDrawer(false));
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => toggleDrawer(false));
+        });
+    </script>
+</body>
+</html>

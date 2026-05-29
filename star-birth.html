@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the Birth of Stars — Orion Cosmos</title>
+    <meta name="description" content="Seeing ultraviolet, visible, and near-infrared light helps Hubble uncover the mysteries of star formation in the Orion Cosmos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tabler Icons for Footer & Social Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- FontAwesome for additional UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           GLOBAL STYLES & RESET
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 0 !important; /* Flat design - no rounded corners */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #000000;
+        }
+
+        body {
+            background-color: #000000;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 17px;
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: #4B9EFF;
+            text-decoration: none;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+
+        a:hover {
+            color: #7abaff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ffffff;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+        }
+
+        .font-mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        /* Container constraints */
+        .content-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Full bleed breakout styling */
+        .full-bleed {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            display: block;
+        }
+
+        .full-bleed img {
+            width: 100%;
+            max-height: 560px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Captions */
+        .media-caption {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+            font-style: italic;
+            margin-top: 12px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           TOP NAVIGATION BAR
+           ========================================================================== */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+            padding: 0 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-brand-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-status {
+            display: flex;
+            align-items: center;
+            margin-left: 12px;
+        }
+
+        .status-dot {
+            color: #2ecc71;
+            font-size: 8px;
+            animation: pulse-dot 1.5s infinite;
+            margin-right: 6px;
+        }
+
+        .status-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.40);
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.9); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.60);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-cockpit {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            background: transparent;
+            cursor: pointer;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-cockpit:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+        /* Mobile Nav Toggle Icon */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           BREADCRUMBS
+           ========================================================================== */
+        .breadcrumb-section {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .breadcrumbs {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.40);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumbs a {
+            color: rgba(255, 255, 255, 0.40);
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            color: #ffffff;
+        }
+
+        .breadcrumbs span.current-page {
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        /* ==========================================================================
+           ARTICLE HERO SECTION
+           ========================================================================== */
+        .article-hero {
+            padding-top: 48px;
+            padding-bottom: 24px;
+        }
+
+        .read-time-badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #4B9EFF;
+            background: rgba(75, 158, 255, 0.15);
+            border: 1px solid rgba(75, 158, 255, 0.3);
+            padding: 4px 10px;
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+        }
+
+        .article-title {
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .article-deck {
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.60);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 640px;
+        }
+
+        /* ==========================================================================
+           ARTICLE BODY & EDITORIAL SECTIONS
+           ========================================================================== */
+        .article-body {
+            padding-bottom: 64px;
+        }
+
+        .opening-paragraph {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.85;
+            margin-bottom: 40px;
+        }
+
+        .editorial-section {
+            margin-top: 48px;
+            margin-bottom: 48px;
+        }
+
+        .editorial-section h2 {
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 24px;
+            border-left: 3px solid #4B9EFF;
+            padding-left: 16px;
+            letter-spacing: 0.03em;
+        }
+
+        .editorial-section p {
+            margin-bottom: 28px;
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        /* Inline Pull-out Box */
+        .pullout-link-block {
+            border-left: 2px solid #4B9EFF;
+            padding: 12px 20px;
+            background: rgba(75, 158, 255, 0.06);
+            margin: 32px 0;
+        }
+
+        .pullout-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4B9EFF;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .pullout-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Inline Images */
+        .inline-image-wrapper {
+            margin: 36px 0;
+            width: 100%;
+        }
+
+        .inline-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* GIF Grid */
+        .gif-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 36px 0;
+        }
+
+        .gif-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gif-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gif-item .media-caption {
+            margin-bottom: 0;
+        }
+
+        /* HTML5 Video elements */
+        .inline-video-wrapper {
+            margin: 36px 0;
+        }
+
+        .inline-video-wrapper video {
+            width: 100%;
+            display: block;
+        }
+
+        /* ==========================================================================
+           "LEARN MORE" CARD GRID
+           ========================================================================== */
+        .learn-more-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 48px;
+            padding-bottom: 48px;
+        }
+
+        .section-header-title {
+            font-size: 28px;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+        }
+
+        .learn-more-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .learn-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .learn-card:hover {
+            border-color: rgba(75, 158, 255, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .learn-card-thumb {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .learn-card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .learn-card-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .learn-card-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .learn-card-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4B9EFF;
+            margin-top: auto;
+        }
+
+        /* ==========================================================================
+           SCIENCE HIGHLIGHTS GRID
+           ========================================================================== */
+        .highlights-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 48px;
+            padding-bottom: 64px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .highlight-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .highlight-card:hover .highlight-card-title {
+            color: #4B9EFF;
+        }
+
+        .highlight-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.25s ease;
+        }
+
+        .highlight-card:hover .highlight-card-img {
+            border-color: rgba(75, 158, 255, 0.4);
+        }
+
+        .highlight-card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            transition: color 0.25s ease;
+        }
+
+        .highlight-card-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .highlight-card-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4B9EFF;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* ==========================================================================
+           FOOTER SECTION
+           ========================================================================== */
+        .main-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            background-color: #000000; /* Pure dark black */
+            padding: 60px 80px 0;
+            color: #ffffff;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .main-footer a:hover {
+            color: #ffffff;
+        }
+
+        .main-footer .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, 1fr) 1.2fr;
+            gap: 48px;
+            padding-bottom: 0;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Brand block */
+        .brand-col {
+            gap: 12px;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-version {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.1em;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 220px;
+            margin: 0;
+        }
+
+        .brand-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .footer-about-link {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Cockpit CTA */
+        .cockpit-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .cta-arrow-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: #E84B1A; /* NASA orange-red */
+            border-radius: 50% !important; /* Circular badge */
+            font-size: 0.65rem;
+            color: #ffffff;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cockpit-cta-btn:hover .cta-arrow-circle {
+            transform: translateX(4px);
+            background-color: #f97316;
+        }
+
+        /* Navigation columns */
+        .nav-col {
+            gap: 12px;
+        }
+
+        .col-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .footer-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 2.2;
+            display: block;
+        }
+
+        /* Social columns */
+        .social-col {
+            gap: 16px;
+        }
+
+        .social-icons-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .social-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50% !important; /* Circular buttons */
+            color: #ffffff;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.10);
+        }
+
+        .social-extra-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .social-text-link {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Divider & Bottom bar */
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
+            margin: 48px 0 0 0;
+            width: 100%;
+        }
+
+        .footer-bottom-bar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .legal-left {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .legal-link {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .legal-dot {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            padding: 0 6px;
+            user-select: none;
+        }
+
+        .legal-right {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .date-highlight {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 700;
+        }
+
+        .dev-separator {
+            color: rgba(255, 255, 255, 0.4);
+            margin: 0 6px;
+        }
+
+        .dev-highlight {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 700;
+        }
+
+        /* Helper utility to hide labels on mobile viewports */
+        .desktop-only-label {
+            display: block;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE / MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .top-nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .main-footer {
+                padding: 60px 40px 0;
+            }
+
+            .main-footer .footer-container {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 32px;
+            }
+
+            .brand-col {
+                grid-column: span 3;
+                margin-bottom: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .content-container {
+                padding: 0 16px;
+            }
+
+            /* Navigation collapses */
+            .nav-links {
+                display: none; /* Hide center links on mobile */
+            }
+
+            .mobile-toggle {
+                display: block;
+                margin-right: 16px;
+            }
+
+            .top-nav {
+                justify-content: space-between;
+                padding: 0 16px;
+            }
+
+            /* Article Hero */
+            .article-hero {
+                padding-top: 32px;
+            }
+
+            .article-title {
+                font-size: 32px;
+                line-height: 1.3;
+            }
+
+            .article-deck {
+                font-size: 18px;
+                margin-bottom: 28px;
+            }
+
+            /* Sections & Grids */
+            .gif-grid {
+                grid-template-columns: 1fr; /* stack GIFs */
+                gap: 16px;
+            }
+
+            .learn-more-grid {
+                grid-template-columns: 1fr; /* stack cards */
+                gap: 20px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr; /* stack highlight cards */
+                gap: 24px;
+            }
+
+            /* Footer Mobile Stacking */
+            .main-footer {
+                padding: 60px 24px 0;
+            }
+
+            .main-footer .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-bottom: 0;
+            }
+
+            .brand-col {
+                grid-column: span 1;
+            }
+
+            .desktop-only-label {
+                display: none; /* Hide spacing spans on mobile */
+            }
+
+            .footer-bottom-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .dev-separator {
+                display: none;
+            }
+
+            .legal-right span {
+                display: block;
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body id="star-birth">
+
+    <!-- Sticky Top Navigation Bar -->
+    <header class="top-nav">
+        <div style="display: flex; align-items: center;">
+            <button class="mobile-toggle" aria-label="Open Menu" onclick="alert('Menu links: Telemetry, Control Deck, Planets, Space Flight, Cosmic Trivia')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="index.html" class="nav-brand">
+                <span class="nav-brand-text">ORION COSMOS</span>
+            </a>
+            <div class="nav-status">
+                <span class="status-dot">●</span>
+                <span class="status-text">SYS READY</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <li><a href="index.html#hero" class="nav-link">Telemetry</a></li>
+            <li><a href="index.html#deck" class="nav-link">Control Deck</a></li>
+            <li><a href="index.html#encyclopedia" class="nav-link">Planets</a></li>
+            <li><a href="index.html#timeline-sec" class="nav-link">Space Flight</a></li>
+            <li><a href="index.html#quiz-sec" class="nav-link">Cosmic Trivia</a></li>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="index.html#deck" class="btn-cockpit">Enter Cockpit →</a>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
+        <div class="content-container">
+            <div class="breadcrumbs">
+                <a href="index.html">Orion Cosmos</a>
+                <span>/</span>
+                <a href="index.html#timeline-sec">Deep Space Logs</a>
+                <span>/</span>
+                <span class="current-page">Exploring the Birth of Stars</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="content-container">
+        
+        <!-- Article Hero Section -->
+        <header class="article-hero">
+            <div class="read-time-badge">2 MIN READ</div>
+            <h1 class="article-title">Exploring the Birth of Stars</h1>
+            <p class="article-deck">Seeing ultraviolet, visible, and near-infrared light helps Hubble uncover the mysteries of star formation.</p>
+        </header>
+
+        <!-- Full-bleed Hero Image -->
+        <figure class="full-bleed">
+            <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hubble_ngc1977_p2042b_wfc3_acs_display-jpg.webp" alt="NGC 1977 Nebula with stellar jets">
+        </figure>
+        <figcaption class="media-caption">
+            Hubble image of NGC 1977 — bright blue nebula cloud with reddish-orange stellar jet. Credit: NASA, ESA
+        </figcaption>
+
+        <!-- Article Body -->
+        <article class="article-body">
+            <p class="opening-paragraph">
+                Stars form in large clouds of gas and dust called nebulae that scatter the visible wavelengths of light our eyes can see. Hubble's capability to see ultraviolet, visible, and near-infrared light enables study of several aspects of star formation. Young stars shine brightly in ultraviolet light, while visible light reveals the structure of star-forming clouds, the shock waves induced by jets from forming stars, and colorful ionized gas in the nebulae energized by young stars.
+            </p>
+
+            <!-- Section 1 -->
+            <section class="editorial-section">
+                <h2>Pillars of Star Formation</h2>
+                <p>
+                    Hubble's observations of nebulae reveal bizarre landscapes sculpted by radiation from young, exceptionally bright stars. The observations reveal the violent process of star birth that produces intense ultraviolet radiation and shock fronts. The radiation clears out cavities in stellar nursery clouds and erodes material from giant gas pillars that are incubators for fledgling stars.
+                </p>
+
+                <!-- Pull-out link block -->
+                <div class="pullout-link-block">
+                    <a href="https://science.nasa.gov/missions/hubble/hubble-captures-view-of-mystic-mountain/" target="_blank" rel="noopener" class="pullout-link">
+                        → Hubble Captures View of 'Mystic Mountain'
+                    </a>
+                </div>
+
+                <!-- Inline Image -->
+                <figure class="inline-image-wrapper">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2024/03/hubble-mystic-mountains-visible-light.jpg" alt="Mystic Mountain visible light view">
+                    <figcaption class="media-caption">
+                        Dubbed "Mystic Mountain" — a three-light-year-tall pillar of gas and dust in the Carina Nebula, being eroded by radiation from nearby stars. Credit: NASA, ESA, M. Livio & the Hubble 20th Anniversary Team (STScI)
+                    </figcaption>
+                </figure>
+
+                <!-- Embedded YouTube Video -->
+                <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:32px 0">
+                    <iframe src="https://www.youtube.com/embed/LE9imV35q7w"
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+                        allowfullscreen title="YouTube Video: Hubble's Cosmic Pillars"></iframe>
+                </div>
+                <div class="media-caption" style="margin-top: -20px; margin-bottom: 40px;">
+                    Credit: NASA's Goddard Space Flight Center. Producer & Director: James Leigh
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="editorial-section">
+                <h2>Jet Blasts from Young Stars</h2>
+                <p>
+                    Hubble can capture energetic jets of glowing gas from young stars in unprecedented detail. These jets, called Herbig-Haro objects, are a byproduct of gas swirling into newly forming stars. The jets form when the star's magnetic field channels gas toward the spinning star's poles, where it shoots out at supersonic speeds in opposing directions.
+                </p>
+
+                <!-- Inline Image -->
+                <figure class="inline-image-wrapper">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/herbig-haro-jet-jpg.webp" alt="Herbig-Haro Jet HH24">
+                    <figcaption class="media-caption">
+                        Herbig-Haro Jet HH24 — Credit: NASA, ESA, D. Padgett (GSFC), T. Megeath (University of Toledo), and B. Reipurth (University of Hawaii)
+                    </figcaption>
+                </figure>
+
+                <!-- Two animated GIFs side-by-side -->
+                <div class="gif-grid">
+                    <div class="gif-item">
+                        <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hh47-sm.gif" alt="Herbig-Haro 47 Jet Animation">
+                        <span class="media-caption">Herbig-Haro 47 (HH 47) — episodic jet outflows from a hidden young star. Credit: NASA, ESA, P. Hartigan (Rice University)</span>
+                    </div>
+                    <div class="gif-item">
+                        <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hh34.gif" alt="Herbig-Haro 34 Jet Animation">
+                        <span class="media-caption">Herbig-Haro 34 (HH 34) in the Orion Nebula. Credit: NASA, ESA, P. Hartigan (Rice University)</span>
+                    </div>
+                </div>
+
+                <!-- HTML5 Inline Video -->
+                <div class="inline-video-wrapper">
+                    <video autoplay loop muted playsinline style="width:100%;margin:32px 0;border-radius:0">
+                        <source src="https://science.nasa.gov/wp-content/uploads/2021/12/13846-nebula-wide-mp4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption class="media-caption" style="margin-top: -20px;">
+                        Colorful nebulae are signposts of star formation. Those beautiful clouds shine by the light of enormous young stars within them. Credit: NASA GSFC
+                    </figcaption>
+                </div>
+            </section>
+        </article>
+
+        <!-- Learn More Section -->
+        <section class="learn-more-section">
+            <h2 class="section-header-title">Learn More</h2>
+            <div class="learn-more-grid">
+                
+                <!-- Card 1 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-movies-of-supersonic-jets/" target="_blank" rel="noopener" class="learn-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hh47-sm.gif" class="learn-card-thumb" alt="Supersonic Jets thumbnail">
+                    <div class="learn-card-body">
+                        <h3 class="learn-card-title">Hubble Movies: Supersonic Jets</h3>
+                        <p class="learn-card-desc">A team of scientists collected 14 years of Hubble imagery to create time-lapse movies of jets ejected from young stars.</p>
+                        <span class="learn-card-link">→ Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="https://science.nasa.gov/missions/hubble/torrential-outflows-from-infant-stars-1/" target="_blank" rel="noopener" class="learn-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/stsci-h-p2106d-m-2000x1736-1.png" class="learn-card-thumb" alt="Torrential Outflows thumbnail">
+                    <div class="learn-card-body">
+                        <h3 class="learn-card-title">Torrential Outflows from Infant Stars</h3>
+                        <p class="learn-card-desc">Though our galaxy holds at least 200 billion stars, the details of how they form remain cloaked in mystery.</p>
+                        <span class="learn-card-link">→ Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-captures-view-of-mystic-mountain/" target="_blank" rel="noopener" class="learn-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2024/03/hubble-mystic-mountains-visible-light.jpg" class="learn-card-thumb" alt="Mystic Mountain thumbnail">
+                    <div class="learn-card-body">
+                        <h3 class="learn-card-title">Hubble Captures 'Mystic Mountain'</h3>
+                        <p class="learn-card-desc">A turbulent cosmic pinnacle lying within the Carina Nebula, 7,500 light-years away.</p>
+                        <span class="learn-card-link">→ Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="https://science.nasa.gov/missions/hubble/embryonic-stars-emerging-from-interstellar-eggs-eggs/" target="_blank" rel="noopener" class="learn-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hubble-eaglenebula-browse-jpg.webp" class="learn-card-thumb" alt="Eagle Nebula thumbnail">
+                    <div class="learn-card-body">
+                        <h3 class="learn-card-title">Embryonic Stars from Interstellar Eggs</h3>
+                        <p class="learn-card-desc">Hubble found evaporating gaseous globules in the Eagle Nebula, 6,500 light-years away.</p>
+                        <span class="learn-card-link">→ Read More</span>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubbles-nebulae/" target="_blank" rel="noopener" class="learn-card">
+                    <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/missions/hubble/nebulae/emission/Hubble_LMC_Trantula_potw2503a.jpg" class="learn-card-thumb" alt="Hubble Nebulae thumbnail">
+                    <div class="learn-card-body">
+                        <h3 class="learn-card-title">Hubble's Nebulae</h3>
+                        <p class="learn-card-desc">Ethereal veils of gas and dust that tell the story of star birth and stellar death across cosmic time.</p>
+                        <span class="learn-card-link">→ Read More</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Science Highlights Section -->
+        <section class="highlights-section">
+            <h2 class="section-header-title">More Science Highlights</h2>
+            <div class="highlights-grid">
+                
+                <!-- Highlight 1 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-highlights-studying-the-planets-and-moons/" target="_blank" rel="noopener" class="highlight-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hubble_opal_composite.png" class="highlight-card-img" alt="Studying the Planets highlight image">
+                    <h3 class="highlight-card-title">Studying the Planets and Moons</h3>
+                    <p class="highlight-card-desc">Explore how Hubble monitors atmospheric dynamics and surface conditions on our solar system neighbors.</p>
+                    <span class="highlight-card-link">Read More →</span>
+                </a>
+
+                <!-- Highlight 2 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-highlights-the-death-throes-of-stars/" target="_blank" rel="noopener" class="highlight-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hubble-nebula-crab-nebula-display-1-jpg.webp" class="highlight-card-img" alt="Death Throes highlight image">
+                    <h3 class="highlight-card-title">The Death Throes of Stars</h3>
+                    <p class="highlight-card-desc">Unveil the stellar remnants, supernova shells, and fading embers left by dying celestial bodies.</p>
+                    <span class="highlight-card-link">Read More →</span>
+                </a>
+
+                <!-- Highlight 3 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-highlights-monster-black-holes-are-everywhere/" target="_blank" rel="noopener" class="highlight-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/behemoth_blackhole-jpg.webp" class="highlight-card-img" alt="Monster Black Holes highlight image">
+                    <h3 class="highlight-card-title">Monster Black Holes are Everywhere</h3>
+                    <p class="highlight-card-desc">Investigate the supermassive black holes anchoring galactic structures across the deep cosmos.</p>
+                    <span class="highlight-card-link">Read More →</span>
+                </a>
+
+                <!-- Highlight 4 -->
+                <a href="https://science.nasa.gov/missions/hubble/hubble-highlights-tracing-the-growth-of-galaxies/" target="_blank" rel="noopener" class="highlight-card">
+                    <img src="https://science.nasa.gov/wp-content/uploads/2023/04/hubble_ultra_deep_field_stsci-prc04-07a-jpg.webp" class="highlight-card-img" alt="Tracing Growth highlight image">
+                    <h3 class="highlight-card-title">Tracing the Growth of Galaxies</h3>
+                    <p class="highlight-card-desc">Peer back billions of years into cosmic dawn to map how primordial clusters evolved.</p>
+                    <span class="highlight-card-link">Read More →</span>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- NASA-style Footer (matching Orion Cosmos specs) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <!-- Column 1: Brand Block -->
+            <div class="footer-col brand-col">
+                <a href="index.html" class="footer-logo">ORION COSMOS</a>
+                <div class="footer-version font-mono">SYS.VER: 4.8.0.COSMOS</div>
+                <p class="footer-description">
+                    An interactive deep-space virtual control bridge mapping the telemetry paths of our solar system orbits.
+                </p>
+                <div class="brand-links">
+                    <a href="index.html#footer" class="footer-about-link">About Orion Cosmos</a>
+                    <a href="index.html#deck" class="cockpit-cta-btn">
+                        <strong>Enter Cockpit</strong>
+                        <span class="cta-arrow-circle">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Navigation -->
+            <div class="footer-col nav-col">
+                <span class="col-label">NAVIGATION</span>
+                <ul class="footer-links-list">
+                    <li><a href="index.html#hero" class="footer-nav-link">Telemetry</a></li>
+                    <li><a href="index.html#deck" class="footer-nav-link">Control Deck</a></li>
+                    <li><a href="index.html#encyclopedia" class="footer-nav-link">Planets Database</a></li>
+                    <li><a href="index.html#timeline-sec" class="footer-nav-link">Space Flight</a></li>
+                    <li><a href="index.html#quiz-sec" class="footer-nav-link">Cosmic Trivia</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Navigation Empty Spacer for layout alignment -->
+            <div class="footer-col nav-col">
+                <span class="col-label desktop-only-label">&nbsp;</span>
+                <ul class="footer-links-list">
+                    <li><a href="index.html#deck" class="footer-nav-link">Solar System</a></li>
+                    <li><a href="index.html#starfield" class="footer-nav-link">Sky Map</a></li>
+                    <li><a href="index.html#deck" class="footer-nav-link">Constellation View</a></li>
+                    <li><a href="index.html#deck" class="footer-nav-link">Synth Audio Mixer</a></li>
+                    <li><a href="index.html#deck" class="footer-nav-link">Warp Simulation</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Navigation Empty Spacer for layout alignment -->
+            <div class="footer-col nav-col">
+                <span class="col-label desktop-only-label">&nbsp;</span>
+                <ul class="footer-links-list">
+                    <li><a href="https://science.nasa.gov/solar-system/" target="_blank" rel="noopener" class="footer-nav-link">NASA Science Portal ↗</a></li>
+                    <li><a href="https://www.solarsystemscope.com/" target="_blank" rel="noopener" class="footer-nav-link">Solar System Scope ↗</a></li>
+                    <li><a href="index.html#hero" class="footer-nav-link">Three.js Renderer</a></li>
+                    <li><a href="index.html#hero" class="footer-nav-link">WebGL Active</a></li>
+                    <li><a href="index.html#footer" class="footer-nav-link">About This Project</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Social Block -->
+            <div class="footer-col social-col">
+                <span class="col-label">FOLLOW THE MISSION</span>
+                <div class="social-icons-row">
+                    <a href="https://www.linkedin.com/in/jagdish-girase-986034410" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
+                        <i class="ti ti-brand-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Jayurana" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
+                        <i class="ti ti-brand-github"></i>
+                    </a>
+                    <a href="mailto:girasejagdish2@gmail.com" class="social-icon-btn" aria-label="Email">
+                        <i class="ti ti-mail"></i>
+                    </a>
+                </div>
+                <div class="social-extra-links">
+                    <a href="index.html#footer" class="social-text-link">More Social Links</a>
+                    <a href="index.html#footer" class="social-text-link">Project Newsletter</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Divider Line -->
+        <hr class="footer-divider">
+
+        <!-- Bottom Legal Strip -->
+        <div class="footer-bottom-bar">
+            <div class="legal-left">
+                <a href="index.html#footer" class="legal-link">Sitemap</a>
+                <span class="legal-dot">·</span>
+                <a href="index.html#footer" class="legal-link">Privacy Policy</a>
+                <span class="legal-dot">·</span>
+                <a href="index.html#footer" class="legal-link">Accessibility</a>
+                <span class="legal-dot">·</span>
+                <a href="index.html#footer" class="legal-link">Contact</a>
+                <span class="legal-dot">·</span>
+                <a href="index.html#footer" class="legal-link">MIT License</a>
+            </div>
+            <div class="legal-right">
+                <span>Page Last Updated: <strong class="date-highlight">May 27, 2026</strong></span>
+                <span class="dev-separator">·</span>
+                <span>Responsible Dev: <strong class="dev-highlight">Jagdish Girase</strong></span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
